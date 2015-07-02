@@ -3,126 +3,85 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-	private Animator anim;
+	private AnimationControl anim;
 	private CharacterController controller;
 	private InputControl input;
 	private Vector3 moveDirection = Vector3.zero;
 	public float speed = 4f;
 	public float gravity = 15.0f;
 	public float jumpPower = 5.0f;
+	public float airJumpPower = 4.5f;
 	public float dashPower = 20.0f;
+
 	// State variables
-	public bool facingRight = true;
 	public bool canJump = false;
-	private bool enableMotion = true;
+	public bool canDash = false;
 	public bool isFalling = false;
 
 	// Use this for initialization
 	void Start () {
 		input = new InputControl ();
-		anim = gameObject.GetComponentInChildren<Animator>();
+		anim = new AnimationControl(gameObject.GetComponentInChildren<Animator>());
 		controller = gameObject.GetComponent<CharacterController> ();
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		CheckStates ();
 		CheckInputs ();
 		SetAnimations ();
 
 		controller.Move (moveDirection * speed * Time.deltaTime);
-		/*if (moveDirection.x > 0 && !facingRight)
-						Flip ();
-		else if(moveDirection.x < 0 && facingRight)
-		        Flip ();
-		        */
 	}
 
-	void CheckStates()
-	{
-		
-		if (controller.isGrounded) canJump = true;
-		else canJump = false;
-
-		if (!controller.isGrounded && moveDirection.y < 0)
-						isFalling = true;
-				else
-						isFalling = false;
-
-		enableMotion = true;
-	}
-
+	// Check inputs and initializes inputController's states
 	void CheckInputs()
 	{
-		
-		input.doubleTap = false;
+
+		// Check doubleTap state
+		input.checkDash ();
 		if (Input.anyKeyDown) 
 		{
-			KeyCode currentKey = input.getCurrentKey();
-			if(input.tapCount == 1 && currentKey == input.lastKeyDown)
-			{
-
-				if(Time.time - input.lastTapTime < input.tapCooldown)
-				{
-					input.doubleTap = true;
-					input.tapCount = 0;
-				}
-			}
-			if(!input.doubleTap)
-			{
-				input.lastKeyDown = (currentKey!=KeyCode.None)? currentKey: input.lastKeyDown;
-				input.lastTapTime = Time.time;
-			
-			 	input.tapCount = 1;
-			}
-
-			
-			Debug.Log(currentKey.ToString());
+			Debug.Log(input.getCurrentKey().ToString()); // print commands to the console
 
 		}
 
-
 	}
+
+	// Set up the animation depending on the states & inputs recorded
 	void SetAnimations()
 	{
-		anim.SetBool ("walk_forward", false);
-		anim.SetBool ("walk_backward", false);
-		anim.SetBool ("idle",false);
-
-
+		anim.initParameters ();
 
 		moveDirection.x = 0;
 
+		// ON THE GROUND
 		if(controller.isGrounded)
 		{
+			canJump = true;
+			canDash = true;
 			moveDirection.y = 0;
-			if (anim.GetCurrentAnimatorStateInfo(0).IsName("Punch"))
-			{
-				enableMotion = false;
-			}
 
 			if (input.isPunching()) {
-				enableMotion = false;
-				anim.CrossFade("Punch",0);
+				anim.setPunch();
 			}
-			if (enableMotion) {
+			if (!anim.inAttackStance()) {
 				if (input.isMovingRight()) {
 						moveDirection.x = 1;
-					if(input.isDashing ())
+					if(input.isDashingRight && canDash)
 					{
 						moveDirection.x *= dashPower;
 					}
 					else
-						anim.SetBool ("walk_forward", true);
+						anim.setWalkF(true);
 				}
 				if (input.isMovingLeft()) {
 							moveDirection.x = -1;
-					if(input.isDashing ())
+					if(input.isDashingLeft && canDash)
 					{
 						moveDirection.x *= dashPower;
 					}
-					anim.SetBool ("walk_backward", true);
+					anim.setWalkB(true);
 					}
 
 			
@@ -132,50 +91,102 @@ public class Player : MonoBehaviour {
 			}
 		}
 
+		// IN THE AIR
 		if(!controller.isGrounded)
 		{
-			if (anim.GetCurrentAnimatorStateInfo(0).IsName("Punch"))
-			{
-				enableMotion = false;
-			}
-			
+			isFalling = (moveDirection.y < 0);
+
 			if (input.isPunching()) {
-				enableMotion = false;
-				//anim.SetTrigger("punch");
-				anim.CrossFade("Punch",0);
+				anim.setPunch();
 			}
 
 			if (input.isMovingRight()) {
 					moveDirection.x = 1;
-				if(input.isDashing ())
+				if(input.isDashingRight && canDash)
+				{
+					canDash = false;
 					moveDirection.x *= dashPower;
+				}
 
 			}
 			if (input.isMovingLeft()) {
 				moveDirection.x = -1;
-				if(input.isDashing ())
+				if(input.isDashingLeft && canDash)
+				{
 					moveDirection.x *= dashPower;
+					canDash = false;
+				}
 			}
 			
-			
-			if (isFalling) {
+			if (input.isJumping() && canJump)
+			{
+				moveDirection.y = airJumpPower;
+				canJump = false;
+			}
+			else if (isFalling) {
 
 			}
 
 			if(!input.isDashing()) moveDirection.y -= gravity * Time.deltaTime;
 		}
 	}
-	void Flip()
-		        {
-		facingRight = !facingRight;
-		Vector3 theScale = transform.localScale;
-		theScale.z *= -1;
-			transform.localScale = theScale;
+
+	/* Class to manage animations */
+	public class AnimationControl
+	{
+		public Animator anim;
+
+		// Animations ID
+		public string walk_f = "walk_forward";
+		public string walk_b = "walk_backward";
+		public string punch = "punch";
+		public string idle = "idle";
+		
+		// Constructor
+		public AnimationControl( Animator a)
+		{
+			anim = a;
 		}
 
+		public bool inAttackStance()
+		{
+			if (anim.GetCurrentAnimatorStateInfo(0).IsName("Punch"))
+				return true;
+			return false;
+		}
+		public bool inMoveStance()
+		{
+			if (anim.GetCurrentAnimatorStateInfo(0).IsName("WalkForward"))
+				return true;
+			if (anim.GetCurrentAnimatorStateInfo(0).IsName("WalkBackward"))
+				return true;
+			return false;
+		}
+		public void initParameters()
+		{
+			setWalkF (false);
+			setWalkB (false);
+		}
+
+		public void setWalkF(bool value){
+				anim.SetBool (walk_f, value);
+		}
+		public void setWalkB(bool value){
+			anim.SetBool (walk_b, value);
+		}
+		public void setIdle(bool value){
+			anim.SetBool (idle, value);
+		}
+		public void setPunch(){
+			//anim.SetTrigger (punch);
+			anim.CrossFade("Punch",0);
+		}
+	}
+
+	/* Class to manage inputs and mapping */
 	public class InputControl
 	{
-		
+		// Double Tap variables
 		public float tapCooldown = 0.3f;
 		public int tapCount = 0;
 		public float lastTapTime = 0;
@@ -183,17 +194,18 @@ public class Player : MonoBehaviour {
 		public KeyCode lastKeyDown = KeyCode.None;
 
 
-
+		// Keycode Mapping variables
 		public KeyCode left;
 		public KeyCode up;
 		public KeyCode right;
 		public KeyCode punch;
 
+		// State variables
 		private bool canMove;
-		private bool isDashingLeft;
-		private bool isDashingRight;
+		public bool isDashingLeft;
+		public bool isDashingRight;
 
-
+		// Constructor
 		public InputControl()
 		{
 			left = KeyCode.A;
@@ -206,26 +218,27 @@ public class Player : MonoBehaviour {
 		{
 			if (Input.GetKey (left)) 
 			{
-				isDashingLeft = doubleTap;
 				return true;
 			}
 			return false;
 		}
+
 		public bool isJumping()
 		{
-			if (Input.GetKey (up)) 
+			if (Input.GetKeyDown (up)) 
 					return true;
 			return false;
 		}
+
 		public bool isMovingRight()
 		{
 			if (Input.GetKey (right)) 
 			{
-				isDashingRight = doubleTap;
 				return true;
 			}
 			return false;
 		}
+
 		public bool isDashing()
 		{
 			if (isDashingLeft || isDashingRight)
@@ -238,6 +251,33 @@ public class Player : MonoBehaviour {
 			if (Input.GetKeyDown (punch))
 				return true;
 			return false;
+		}
+
+		public void checkDash()
+		{
+			doubleTap = false;
+			isDashingLeft = false;
+			isDashingRight = false;
+			if (Input.anyKeyDown) {
+								KeyCode currentKey = getCurrentKey ();
+								if (tapCount == 1 && currentKey == lastKeyDown) {
+					
+										if (Time.time - lastTapTime < tapCooldown) {
+												doubleTap = true;
+												if (currentKey == left)
+														isDashingLeft = true;
+												if (currentKey == right)
+														isDashingRight = true;
+												tapCount = 0;
+										}
+								}
+								if (!doubleTap) {
+										lastKeyDown = (currentKey != KeyCode.None) ? currentKey : lastKeyDown;
+										lastTapTime = Time.time;
+					
+										tapCount = 1;
+								}
+						}
 		}
 
 		public KeyCode getCurrentKey()
