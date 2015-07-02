@@ -72,7 +72,6 @@ namespace AssemblyCSharp
 			}
 			return false;
 		}
-		
 		public bool isDashing()
 		{
 			if (isDashingLeft || isDashingRight)

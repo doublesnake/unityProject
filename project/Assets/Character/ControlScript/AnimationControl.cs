@@ -17,9 +17,16 @@ namespace AssemblyCSharp
 		{
 			public Animator anim;
 			
-			// Animations ID
-			public string walk_f = "walk_forward";
-			public string walk_b = "walk_backward";
+			// direction ID
+			public const float BACKWARD = -1;
+			public const float FORWARD = 1;
+			public const float NULL = 0;
+			// Parameters ID
+			public string direction = "direction";
+			public string isGrounded = "isGrounded";
+			public string isMoving = "isMoving";
+			public string fall = "fall";
+			public string jump = "jump";
 			public string punch = "punch";
 			public string idle = "idle";
 			
@@ -36,28 +43,35 @@ namespace AssemblyCSharp
 				return false;
 			}
 			public bool inMoveStance()
-			{
+			{/*
 				if (anim.GetCurrentAnimatorStateInfo(0).IsName("WalkForward"))
 					return true;
 				if (anim.GetCurrentAnimatorStateInfo(0).IsName("WalkBackward"))
-					return true;
+					return true;*/
 				return false;
 			}
 			public void initParameters()
 			{
-				setWalkF (false);
-				setWalkB (false);
+				setDirection(NULL);
 			}
-			
-			public void setWalkF(bool value){
-				anim.SetBool (walk_f, value);
-			}
-			public void setWalkB(bool value){
-				anim.SetBool (walk_b, value);
-			}
-			public void setIdle(bool value){
-				anim.SetBool (idle, value);
-			}
+		public void setIdle(bool value){
+			anim.SetBool (idle, value);
+		}
+			public void setJump(){
+				anim.SetTrigger (jump);
+		}
+		public void setFall(bool value){
+			anim.SetBool (fall, value);
+		}
+		public void setIsGrounded(bool value){
+			anim.SetBool (isGrounded, value);
+		}
+		public void setIsMoving(bool value){
+			anim.SetBool (isMoving, value);
+		}
+			public void setDirection(float dir){
+				anim.SetFloat (direction,dir);
+		}
 			public void setPunch(){
 				//anim.SetTrigger (punch);
 				anim.CrossFade("Punch",0);

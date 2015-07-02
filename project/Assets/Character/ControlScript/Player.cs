@@ -20,6 +20,8 @@ public class Player : MonoBehaviour {
 	public bool canJump = false;
 	public bool canRun = true;
 	public bool canDash = false;
+	public bool isIdle = true;
+	public bool isGrounded;
 	public bool isFalling = false;
 
 	// Use this for initialization
@@ -32,17 +34,20 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		CheckInputs ();
-		SetAnimations ();
 		
 		Vector3 acceleration = moveDirection * speed * Time.deltaTime;
-
+		
 		if (input.isRunning () && canRun) {
 			acceleration.x = moveDirection.x * runSpeed * Time.deltaTime; // running only affects horizontal speed
 			controller.Move (acceleration);
 		}
 		else
 			controller.Move (acceleration);
+
+		CheckInputs ();
+		SetAnimations ();
+
+
 	}
 
 	// Check inputs and initializes inputController's states
@@ -61,6 +66,7 @@ public class Player : MonoBehaviour {
 	// Set up the animation depending on the states & inputs recorded
 	void SetAnimations()
 	{
+		isIdle = true;
 		anim.initParameters ();
 
 		moveDirection.x = 0;
@@ -68,42 +74,55 @@ public class Player : MonoBehaviour {
 		// ON THE GROUND
 		if(controller.isGrounded)
 		{
+			isFalling = false;
+			anim.setFall(isFalling);
+			isGrounded = true;
 			canJump = true;
 			canDash = true;
 			moveDirection.y = 0;
-
+			anim.setIsGrounded(true);
 			if (input.isPunching()) {
+				isIdle = false;
 				anim.setPunch();
 			}
 			if (!anim.inAttackStance()) {
 				if (input.isMovingRight()) {
+					isIdle = false;
 						moveDirection.x = 1;
+						anim.setDirection(moveDirection.x);
 					if(input.isDashingRight && canDash)
 					{
 						moveDirection.x *= dashPower;
 					}
-					else
-						anim.setWalkF(true);
 				}
 				if (input.isMovingLeft()) {
-							moveDirection.x = -1;
+					isIdle = false;
+					moveDirection.x = -1;
+					anim.setDirection(moveDirection.x);
 					if(input.isDashingLeft && canDash)
 					{
 						moveDirection.x *= dashPower;
 					}
-					anim.setWalkB(true);
-					}
+				}
 
 			
 				if (input.isJumping() && canJump) {
-							moveDirection.y = jumpPower;
+					isIdle = false;
+					moveDirection.y = jumpPower;
+					anim.setJump();
 					}
+
+				moveDirection.y -= 0.001f * Time.deltaTime;
+				anim.setIdle (isIdle);
 			}
 		}
 
 		// IN THE AIR
 		if(!controller.isGrounded)
 		{
+			isGrounded = false;
+			isIdle = false;
+			anim.setIsGrounded(false);
 			isFalling = (moveDirection.y < 0);
 
 			if (input.isPunching()) {
@@ -111,7 +130,8 @@ public class Player : MonoBehaviour {
 			}
 
 			if (input.isMovingRight()) {
-					moveDirection.x = 1;
+				moveDirection.x = 1;
+				anim.setDirection(moveDirection.x);
 				if(input.isDashingRight && canDash)
 				{
 					canDash = false;
@@ -121,6 +141,7 @@ public class Player : MonoBehaviour {
 			}
 			if (input.isMovingLeft()) {
 				moveDirection.x = -1;
+				anim.setDirection(moveDirection.x);
 				if(input.isDashingLeft && canDash)
 				{
 					moveDirection.x *= dashPower;
@@ -131,13 +152,17 @@ public class Player : MonoBehaviour {
 			if (input.isJumping() && canJump)
 			{
 				moveDirection.y = airJumpPower;
+				anim.setJump();
 				canJump = false;
 			}
 			else if (isFalling) {
-
+				anim.setFall(isFalling);
 			}
 
 			if(!input.isDashing()) moveDirection.y -= gravity * Time.deltaTime;
+
 		}
+		if(moveDirection.x == 0) anim.setIsMoving(false);
+		else anim.setIsMoving(true);
 	}
 }
