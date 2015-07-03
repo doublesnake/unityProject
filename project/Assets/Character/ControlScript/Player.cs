@@ -36,13 +36,17 @@ public class Player : MonoBehaviour {
 	void Update () {
 		
 		Vector3 acceleration = moveDirection * speed * Time.deltaTime;
-		
-		if (input.isRunning () && canRun) {
-			acceleration.x = moveDirection.x * runSpeed * Time.deltaTime; // running only affects horizontal speed
-			controller.Move (acceleration);
+
+		if (anim.inAirDashStance ()) 
+		{
+			acceleration.x = moveDirection.x * speed * dashPower * Time.deltaTime;
 		}
-		else
-			controller.Move (acceleration);
+
+		else if (input.isRunning () && canRun) {
+			acceleration.x = moveDirection.x * runSpeed * Time.deltaTime; // running only affects horizontal speed
+		}
+
+		controller.Move (acceleration);
 
 		CheckInputs ();
 		SetAnimations ();
@@ -71,6 +75,7 @@ public class Player : MonoBehaviour {
 
 		moveDirection.x = 0;
 
+		anim.setDash (input.isDashing ());
 		// ON THE GROUND
 		if(controller.isGrounded)
 		{
@@ -135,7 +140,7 @@ public class Player : MonoBehaviour {
 				if(input.isDashingRight && canDash)
 				{
 					canDash = false;
-					moveDirection.x *= dashPower;
+					//moveDirection.x *= dashPower;
 				}
 
 			}
@@ -144,7 +149,7 @@ public class Player : MonoBehaviour {
 				anim.setDirection(moveDirection.x);
 				if(input.isDashingLeft && canDash)
 				{
-					moveDirection.x *= dashPower;
+					//moveDirection.x *= dashPower;
 					canDash = false;
 				}
 			}

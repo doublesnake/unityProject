@@ -26,7 +26,8 @@ namespace AssemblyCSharp
 			public string isGrounded = "isGrounded";
 			public string isMoving = "isMoving";
 			public string fall = "fall";
-			public string jump = "jump";
+		public string jump = "jump";
+		public string dash = "dash";
 			public string punch = "punch";
 			public string idle = "idle";
 			
@@ -43,11 +44,15 @@ namespace AssemblyCSharp
 				return false;
 			}
 			public bool inMoveStance()
-			{/*
-				if (anim.GetCurrentAnimatorStateInfo(0).IsName("WalkForward"))
+			{
+				if (anim.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
 					return true;
-				if (anim.GetCurrentAnimatorStateInfo(0).IsName("WalkBackward"))
-					return true;*/
+				return false;
+		}
+			public bool inAirDashStance()
+			{
+				if (anim.GetCurrentAnimatorStateInfo(0).IsName("AirDash"))
+					return true;
 				return false;
 			}
 			public void initParameters()
@@ -56,6 +61,9 @@ namespace AssemblyCSharp
 			}
 		public void setIdle(bool value){
 			anim.SetBool (idle, value);
+		}
+		public void setDash(bool value){
+			anim.SetBool (dash, value);
 		}
 			public void setJump(){
 				anim.SetTrigger (jump);
