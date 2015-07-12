@@ -73,8 +73,8 @@ public class Player : MonoBehaviour {
 		// ON THE GROUND
 		if (controller.isGrounded) 
 		{
-			moveDirection.x = 0;
-			moveDirection.y = 0;
+			moveDirection.x = NONE;
+			moveDirection.y = NONE;
 			canAirDashLeft = true;
 			canAirDashRight = true;
 			canJump = true;
@@ -90,7 +90,7 @@ public class Player : MonoBehaviour {
 			isGrounded = false;
 			isFalling = (moveDirection.y < -0.0015f * Time.deltaTime);
 			anim.setGrounded(false);
-			anim.setDirectionY (NONE);
+			anim.setCrouch (false);
 		}
 
 	}
@@ -178,28 +178,28 @@ public class Player : MonoBehaviour {
 		}
 		
 		if (!input.isCrouching ()) {
-			anim.setDirectionY (NONE);
+			anim.setCrouch (false);
 		}
 
 		if (input.isMovingRight()) {
 			isIdle = false;
 			isMoving = true;
-			if (input.isCrouching ()) moveDirection.x = 0;
+			if (input.isCrouching ()) moveDirection.x = NONE;
 			else moveDirection.x = 1;
 			anim.setDirectionX(RIGHT);
 		}
 		if (input.isMovingLeft()) {
 			isIdle = false;
 			isMoving = true;
-			if (input.isCrouching ()) moveDirection.x = 0;
+			if (input.isCrouching ()) moveDirection.x = NONE;
 			else moveDirection.x = -1;
 			anim.setDirectionX(LEFT);
 		} 
 		if (input.isCrouching ()) {
 			isIdle = false;
-			isMoving = true;
+			isMoving = false;
 			isRunning = false;
-			anim.setDirectionY (DOWN);
+			anim.setCrouch (true);
 		}
 		if (input.isJumping() && canJump) {
 			isIdle = false;
@@ -231,7 +231,7 @@ public class Player : MonoBehaviour {
 			
 			isIdle = false;
 			isMoving = true;
-			moveDirection.y = 0;
+			moveDirection.y = NONE;
 
 
 			if(canAirDashRight && dashDirection == input.right)
@@ -264,6 +264,9 @@ public class Player : MonoBehaviour {
 				isAirDashing = false;
 				moveDirection.y = airJumpPower;
 				anim.setJump ();
+				if(dashDirection == input.left) moveDirection.x = LEFT;
+				else if(dashDirection == input.right) moveDirection.x = RIGHT;
+				else moveDirection.x = NONE;
 				canJump = false;
 			}
 			
@@ -276,20 +279,23 @@ public class Player : MonoBehaviour {
 			if (input.isMovingRight ()) {
 					isIdle = false;
 					isMoving = true;
-					moveDirection.x = 1;
+					moveDirection.x = RIGHT;
 					anim.setDirectionX (moveDirection.x);
 			}
 			if (input.isMovingLeft ()) {
 					isIdle = false;
 					isMoving = true;
-					moveDirection.x = -1;
+					moveDirection.x = LEFT;
 					anim.setDirectionX (moveDirection.x);
 			}
 
 			if (input.isJumping () && canJump) {
 					isIdle = false;
-					isMoving = true;
+					isMoving = false;
 					moveDirection.y = airJumpPower;
+					if(input.isMovingLeft()) moveDirection.x = LEFT;
+					else if(input.isMovingRight()) moveDirection.x = RIGHT;
+					else moveDirection.x = NONE;
 					anim.setJump ();
 					canJump = false;
 			}

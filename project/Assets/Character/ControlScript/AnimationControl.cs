@@ -23,9 +23,9 @@ namespace AssemblyCSharp
 			public const float NULL = 0;
 			// Parameters ID
 			public string directionX = "directionX";
-			public string directionY = "directionY";
+			public string crouch = "crouch";
 			public string grounded = "grounded";
-		public string moving = "moving";
+			public string moving = "moving";
 			public string fall = "fall";
 			public string jump = "jump";
 			public string airdash = "airdash";
@@ -55,11 +55,11 @@ namespace AssemblyCSharp
 			public void setMoving(bool value){
 				anim.SetBool (moving, value);
 			}
+			public void setCrouch(bool value){
+				anim.SetBool (crouch,value);
+			}
 			public void setDirectionX(float dir){
 				anim.SetFloat (directionX,dir);
-			}
-			public void setDirectionY(float dir){
-				anim.SetFloat (directionY,dir);
 			}
 			public void setPunch(){
 				//anim.SetTrigger (punch);
