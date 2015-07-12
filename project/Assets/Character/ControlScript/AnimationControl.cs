@@ -22,12 +22,13 @@ namespace AssemblyCSharp
 			public const float FORWARD = 1;
 			public const float NULL = 0;
 			// Parameters ID
-			public string direction = "direction";
-			public string isGrounded = "isGrounded";
-			public string isMoving = "isMoving";
+			public string directionX = "directionX";
+			public string directionY = "directionY";
+			public string grounded = "grounded";
+		public string moving = "moving";
 			public string fall = "fall";
-		public string jump = "jump";
-		public string dash = "dash";
+			public string jump = "jump";
+			public string airdash = "airdash";
 			public string punch = "punch";
 			public string idle = "idle";
 			
@@ -36,50 +37,30 @@ namespace AssemblyCSharp
 			{
 				anim = a;
 			}
-			
-			public bool inAttackStance()
-			{
-				if (anim.GetCurrentAnimatorStateInfo(0).IsName("Punch"))
-					return true;
-				return false;
+			public void setIdle(bool value){
+				anim.SetBool (idle, value);
 			}
-			public bool inMoveStance()
-			{
-				if (anim.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
-					return true;
-				return false;
-		}
-			public bool inAirDashStance()
-			{
-				if (anim.GetCurrentAnimatorStateInfo(0).IsName("AirDash"))
-					return true;
-				return false;
+			public void setAirDash(bool value){
+				anim.SetBool (airdash, value);
 			}
-			public void initParameters()
-			{
-				setDirection(NULL);
+				public void setJump(){
+					anim.SetTrigger (jump);
 			}
-		public void setIdle(bool value){
-			anim.SetBool (idle, value);
-		}
-		public void setDash(bool value){
-			anim.SetBool (dash, value);
-		}
-			public void setJump(){
-				anim.SetTrigger (jump);
-		}
-		public void setFall(bool value){
-			anim.SetBool (fall, value);
-		}
-		public void setIsGrounded(bool value){
-			anim.SetBool (isGrounded, value);
-		}
-		public void setIsMoving(bool value){
-			anim.SetBool (isMoving, value);
-		}
-			public void setDirection(float dir){
-				anim.SetFloat (direction,dir);
-		}
+			public void setFall(bool value){
+				anim.SetBool (fall, value);
+			}
+			public void setGrounded(bool value){
+				anim.SetBool (grounded, value);
+			}
+			public void setMoving(bool value){
+				anim.SetBool (moving, value);
+			}
+			public void setDirectionX(float dir){
+				anim.SetFloat (directionX,dir);
+			}
+			public void setDirectionY(float dir){
+				anim.SetFloat (directionY,dir);
+			}
 			public void setPunch(){
 				//anim.SetTrigger (punch);
 				anim.CrossFade("Punch",0);

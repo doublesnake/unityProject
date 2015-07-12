@@ -22,29 +22,38 @@ namespace AssemblyCSharp
 		public float runPressTime = 0.3f;
 		public float lastTapTime = 0;
 		public bool doubleTap = false;
-		public bool doubleTapPress = false;
+		public bool doubleTapDown = false;
 		public KeyCode lastKeyDown = KeyCode.None;
+		public float lastDashTime = 0f;
 		
 		
 		// Keycode Mapping variables
 		public KeyCode left;
 		public KeyCode up;
 		public KeyCode right;
+		public KeyCode down;
 		public KeyCode punch;
 		
 		// State variables
 		private bool canMove;
-		public bool isDashingLeft;
-		public bool isDashingRight;
-		public bool isRunningLeft;
-		public bool isRunningRight;
+		private bool doubleTapLeft;
+		private bool doubleTapRight;
+		private bool doubleTapDownLeft;
+		private bool doubleTapDownRight;
+		public KeyCode doubleTapDirection;
 		
 		// Constructor
 		public InputControl()
 		{
-			left = KeyCode.A;
+			/*left = KeyCode.A;
 			up = KeyCode.W;
 			right = KeyCode.D;
+			punch = KeyCode.Keypad1;*/
+
+			left = KeyCode.Q;
+			up = KeyCode.Z;
+			right = KeyCode.D;
+			down = KeyCode.S;
 			punch = KeyCode.Keypad1;
 		}
 		
@@ -63,6 +72,13 @@ namespace AssemblyCSharp
 				return true;
 			return false;
 		}
+
+		public bool isCrouching()
+		{
+			if (Input.GetKey (down)) 
+				return true;
+			return false;
+		}
 		
 		public bool isMovingRight()
 		{
@@ -72,32 +88,6 @@ namespace AssemblyCSharp
 			}
 			return false;
 		}
-		public bool isDashing()
-		{
-			if (isDashingLeft || isDashingRight)
-				return true;
-			return false;
-		}
-
-		public bool isRunning()
-		{
-			if (isRunningLeft || isRunningRight)
-				return true;
-			return false;
-		}
-
-		public void setRunning(bool val)
-		{
-			isRunningLeft = val;
-			isRunningRight = val;
-		}
-
-		public void setDashing(bool val)
-		{
-			isDashingLeft = val;
-			isDashingRight = val;
-		}
-		
 		public bool isPunching()
 		{
 			if (Input.GetKeyDown (punch))
@@ -107,18 +97,13 @@ namespace AssemblyCSharp
 		
 		public void checkInputStates()
 		{
-			
-			setDashing (false);
 
 			if (doubleTap) {
 				if(Input.GetKey(lastKeyDown))
 				{
-					if(Time.time - lastTapTime > runPressTime)
-					{
-						doubleTapPress = true;
-						doubleTap = false;
-						Debug.Log("RUN");
-					}
+					doubleTapDown = true;
+					doubleTap = false;
+					Debug.Log("RUN");
 				}
 				else
 				{
@@ -127,18 +112,10 @@ namespace AssemblyCSharp
 				return;
 			}
 
-			if (doubleTapPress) {
+			if (doubleTapDown) {
 				if(!Input.GetKey(lastKeyDown))
 				{
-					doubleTapPress = false;
-					setRunning(false);
-				}
-				else{
-					
-					if (lastKeyDown == left)
-						isRunningLeft = true;
-					if (lastKeyDown == right)
-						isRunningRight = true;
+					doubleTapDown = false;
 				}
 				return;
 			}
@@ -148,10 +125,7 @@ namespace AssemblyCSharp
 				if (tapCount == 1 && currentKey == lastKeyDown) {
 					
 					if (Time.time - lastTapTime < tapCooldown) {
-						if (lastKeyDown == left)
-							isDashingLeft = true;
-						if (lastKeyDown == right)
-							isDashingRight = true;
+						doubleTapDirection = lastKeyDown;
 						Debug.Log("DASH");
 						doubleTap = true;
 						tapCount = 0;
@@ -166,7 +140,6 @@ namespace AssemblyCSharp
 			}
 		}
 
-		
 		public KeyCode getCurrentKey()
 		{
 			if (Input.GetKeyDown (left))
