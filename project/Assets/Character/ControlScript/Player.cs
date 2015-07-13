@@ -77,6 +77,7 @@ public class Player : MonoBehaviour {
 			moveDirection.y = NONE;
 			canAirDashLeft = true;
 			canAirDashRight = true;
+			isAirDashing = false;
 			canJump = true;
 			isFalling = false;
 			isGrounded = true;
