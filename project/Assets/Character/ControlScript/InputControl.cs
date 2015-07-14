@@ -45,15 +45,38 @@ namespace AssemblyCSharp
 		// Constructor
 		public InputControl()
 		{
+			inputP1 ();
+		}
+		// Constructor
+		public InputControl(int id)
+		{
+			if (id == 1) inputP1 ();
+			else inputP2 ();
+		}
+		public void inputP1()
+		{
 			/*left = KeyCode.A;
 			up = KeyCode.W;
 			right = KeyCode.D;
 			punch = KeyCode.Keypad1;*/
-
+			
 			left = KeyCode.Q;
 			up = KeyCode.Z;
 			right = KeyCode.D;
 			down = KeyCode.S;
+			punch = KeyCode.Space;
+		}
+		public void inputP2()
+		{
+			/*left = KeyCode.A;
+			up = KeyCode.W;
+			right = KeyCode.D;
+			punch = KeyCode.Keypad1;*/
+			
+			left = KeyCode.LeftArrow;
+			up = KeyCode.UpArrow;
+			right = KeyCode.RightArrow;
+			down = KeyCode.DownArrow;
 			punch = KeyCode.Keypad1;
 		}
 		

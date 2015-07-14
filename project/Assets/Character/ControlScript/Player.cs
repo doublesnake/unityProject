@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
 	private CharacterController controller;
 	private InputControl input;
 	private Vector3 moveDirection = Vector3.zero;
+	public int id = 1;
 	public float speed = 4.0f;
 	public float gravity = 15.0f;
 	public float jumpPower = 5.0f;
@@ -38,15 +39,12 @@ public class Player : MonoBehaviour {
 	public bool isGrounded;
 	public bool isFalling;
 
-	public const int UP = 1;
-	public const int DOWN = -1;
-	public const int LEFT = -1;
-	public const int RIGHT = 1;
-	public const int NONE = 0;
+
+
 
 	// Use this for initialization
 	void Start () {
-		input = new InputControl ();
+		input = new InputControl (id);
 		anim = new AnimationControl(gameObject.GetComponentInChildren<Animator>());
 		controller = gameObject.GetComponent<CharacterController> ();
 
@@ -73,8 +71,8 @@ public class Player : MonoBehaviour {
 		// ON THE GROUND
 		if (controller.isGrounded) 
 		{
-			moveDirection.x = NONE;
-			moveDirection.y = NONE;
+			moveDirection.x = Global.NONE;
+			moveDirection.y = Global.NONE;
 			canAirDashLeft = true;
 			canAirDashRight = true;
 			isAirDashing = false;
@@ -175,7 +173,7 @@ public class Player : MonoBehaviour {
 		
 		if (!input.isMovingRight()&& !input.isMovingLeft())
 		{
-			anim.setDirectionX(NONE);
+			anim.setDirectionX(Global.NONE);
 		}
 		
 		if (!input.isCrouching ()) {
@@ -185,16 +183,16 @@ public class Player : MonoBehaviour {
 		if (input.isMovingRight()) {
 			isIdle = false;
 			isMoving = true;
-			if (input.isCrouching ()) moveDirection.x = NONE;
+			if (input.isCrouching ()) moveDirection.x = Global.NONE;
 			else moveDirection.x = 1;
-			anim.setDirectionX(RIGHT);
+			anim.setDirectionX(Global.RIGHT);
 		}
 		if (input.isMovingLeft()) {
 			isIdle = false;
 			isMoving = true;
-			if (input.isCrouching ()) moveDirection.x = NONE;
+			if (input.isCrouching ()) moveDirection.x = Global.NONE;
 			else moveDirection.x = -1;
-			anim.setDirectionX(LEFT);
+			anim.setDirectionX(Global.LEFT);
 		} 
 		if (input.isCrouching ()) {
 			isIdle = false;
@@ -225,14 +223,14 @@ public class Player : MonoBehaviour {
 
 		if (!input.isMovingRight()&& !input.isMovingLeft())
 		{
-			anim.setDirectionX(NONE);
+			anim.setDirectionX(Global.NONE);
 		}
 		// AIR - DASHING
 		if (isAirDashing) {
 			
 			isIdle = false;
 			isMoving = true;
-			moveDirection.y = NONE;
+			moveDirection.y = Global.NONE;
 
 
 			if(canAirDashRight && dashDirection == input.right)
@@ -248,14 +246,14 @@ public class Player : MonoBehaviour {
 
 			if(dashDirection == input.right) 
 			{
-				anim.setDirectionX(RIGHT);
+				anim.setDirectionX(Global.RIGHT);
 				moveDirection.x -= antiDashPower * Time.deltaTime;
 				if(moveDirection.x<1 || input.isMovingLeft()){
 					isAirDashing = false;
 				}
 			}
 			if(dashDirection == input.left){
-				anim.setDirectionX(LEFT);
+				anim.setDirectionX(Global.LEFT);
 				moveDirection.x += antiDashPower * Time.deltaTime;
 				if(moveDirection.x>-1  || input.isMovingRight()){
 					isAirDashing = false;
@@ -265,9 +263,9 @@ public class Player : MonoBehaviour {
 				isAirDashing = false;
 				moveDirection.y = airJumpPower;
 				anim.setJump ();
-				if(dashDirection == input.left) moveDirection.x = LEFT;
-				else if(dashDirection == input.right) moveDirection.x = RIGHT;
-				else moveDirection.x = NONE;
+				if(dashDirection == input.left) moveDirection.x = Global.LEFT;
+				else if(dashDirection == input.right) moveDirection.x = Global.RIGHT;
+				else moveDirection.x = Global.NONE;
 				canJump = false;
 			}
 			
@@ -280,13 +278,13 @@ public class Player : MonoBehaviour {
 			if (input.isMovingRight ()) {
 					isIdle = false;
 					isMoving = true;
-					moveDirection.x = RIGHT;
+				moveDirection.x = Global.RIGHT;
 					anim.setDirectionX (moveDirection.x);
 			}
 			if (input.isMovingLeft ()) {
 					isIdle = false;
 					isMoving = true;
-					moveDirection.x = LEFT;
+				moveDirection.x = Global.LEFT;
 					anim.setDirectionX (moveDirection.x);
 			}
 
@@ -294,9 +292,9 @@ public class Player : MonoBehaviour {
 					isIdle = false;
 					isMoving = false;
 					moveDirection.y = airJumpPower;
-					if(input.isMovingLeft()) moveDirection.x = LEFT;
-					else if(input.isMovingRight()) moveDirection.x = RIGHT;
-					else moveDirection.x = NONE;
+				if(input.isMovingLeft()) moveDirection.x = Global.LEFT;
+				else if(input.isMovingRight()) moveDirection.x = Global.RIGHT;
+				else moveDirection.x = Global.NONE;
 					anim.setJump ();
 					canJump = false;
 			}
@@ -311,6 +309,35 @@ public class Player : MonoBehaviour {
 
 		}
 		anim.setMoving (isMoving);
-
 	}
+
+	void OnTouched(int damageType)
+	{
+		if (damageType == Global.HIGH) 
+		{
+
+		}
+		if (damageType == Global.MIDDLE) 
+		{
+		
+		}
+		if (damageType == Global.LOW) 
+		{
+
+		}
+	}
+	/*
+	void OnTouchedExit(int damageType)
+	{
+		if (type == -1) 
+		{
+			anim.anim.SetBool ("hitboxHigh", false);
+			anim.anim.SetBool ("hitboxLow", false);
+			
+		}
+		if(type == 0)
+			anim.anim.SetBool ("hitboxHigh",false);
+		if(type == 2)
+			anim.anim.SetBool ("hitboxLow",false);
+	}*/
 }
