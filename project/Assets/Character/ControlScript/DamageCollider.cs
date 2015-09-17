@@ -10,13 +10,13 @@ public class DamageCollider : MonoBehaviour {
 	{
 		
 		type = -1;
-		if (this.gameObject.name == "High")
+		/*if (this.gameObject.name == "High")
 			type = Global.HIGH;
 		if (this.gameObject.name == "Medium")
 			type = Global.MIDDLE;
 		if (this.gameObject.name == "Low")
 			type = Global.LOW;
-
+        */
 	}
 
 	void OnTriggerEnter(Collider collider) {

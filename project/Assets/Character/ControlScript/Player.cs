@@ -1,65 +1,112 @@
 ﻿using UnityEngine;
 using System.Collections;
 using AssemblyCSharp;
+using System.Linq;
+using System;
 
 
 public class Player : MonoBehaviour {
 
 	private AnimationControl anim;
-	private CharacterController controller;
+	private Rigidbody2D controller;
 	private InputControl input;
-	private Vector3 moveDirection = Vector3.zero;
+	private Vector2 moveDirection = Vector2.zero;
 	public int id = 1;
 	public float speed = 4.0f;
 	public float gravity = 15.0f;
-	public float jumpPower = 5.0f;
+	public float jumpPower = 4500f;
 	public float airJumpPower = 4.5f;
-	public float dashPower = 4.0f;
-	public float runSpeed = 8f;
-	public float antiDashFactor = 3f;
-	private float antiDashPower;
-	public float runBoostPower = 3f;
-	private bool runBoost;
+	public float dashSpeed = 6f;
+	public float runSpeed = 6f;
+	public float antiDashPower = 20f;
+	public float runBoostPower = 2.5f;
+	private float gravityScale = 5;
+	public int dashDuration = 5;
+	public int dashCounter = 0;
+	public int airDashDuration = 10;
+    public int airDashCounter = 0;
+    public float attackTimer = 0f;
+    public float attackCooldown = 0.2f;
+    public float velocityX;
+    public float velocityY;
+    public float distance;
+    Transform armature;
 
-	private float directionX;
-	private float directionY;
-	public KeyCode dashDirection;
+	public Direction dashDirection;
+
+    public bool doubleJump;
+
+
+    public float currentPV;
+    public float PVMax;
+
+    public int currentSP;
+    public int SPMax;
+
+    public Command lastAttack = null;
 
 	// State variables
-	private bool canJump = true;
+	public bool canJump = true;
 	private bool canRun = true;
 	private bool canAirDashLeft = true;
 	private bool canAirDashRight = true;
 
 	public bool isRunning;
+    public bool isDashing;
+    public bool isJumping;
+    public bool isDoubleJumping;
 	public bool isAirDashing;
-	public bool isJumping;
+	public bool up;
+	public bool isGravity;
 	public bool isIdle;
 	public bool isMoving;
 	public bool isGrounded;
 	public bool isFalling;
 
+    public bool isAttacking;
+	public Transform groundCheck;
+	float groundRadius = 0.2f;
+	public LayerMask whatIsGround;
 
-
+    private Character character = new Character();
+    private Transform enemy;
 
 	// Use this for initialization
 	void Start () {
-		input = new InputControl (id);
+		input = new InputControl (character.commandList, id);
 		anim = new AnimationControl(gameObject.GetComponentInChildren<Animator>());
-		controller = gameObject.GetComponent<CharacterController> ();
+		controller = gameObject.GetComponent<Rigidbody2D> ();
+        armature = transform.Find("Armature");
+		controller.freezeRotation = true;
 
-		antiDashPower = antiDashFactor*dashPower;
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in players)
+        {
+            if (player.transform != this.transform)
+            {
+                enemy = player.transform;
+                //break;
+            }
+        }
 
+        PVMax = character.PV;
+        SPMax = character.SPMax;
+
+        canJump = true;
 
 	}
-	
+    void Update()
+    {
+        FollowTarget();
+        InitStates();
+        CheckInput();
+    }
 	// Update is called once per frame
-	void Update () {
-
-		InitStates ();
+    void FixedUpdate()
+    {
+       // FollowTarget();
 		SetAnimations ();
 		MoveCharacter ();
-
 	}
 
 	// Reinitialization of states for each frames
@@ -67,96 +114,226 @@ public class Player : MonoBehaviour {
 	{
 		isIdle = true;
 		isMoving = false;
+		
+		doubleJump = false;
+		isGravity = true;
+
+		isGrounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
 
 		// ON THE GROUND
-		if (controller.isGrounded) 
+		if (isGrounded) 
 		{
-			moveDirection.x = Global.NONE;
-			moveDirection.y = Global.NONE;
+			moveDirection.x = (int)Direction.NONE;
+			moveDirection.y = (int)Direction.NONE;
 			canAirDashLeft = true;
 			canAirDashRight = true;
-			isAirDashing = false;
-			canJump = true;
+            isAirDashing = false;
 			isFalling = false;
 			isGrounded = true;
 			anim.setGrounded(true);
 			anim.setFall(false);
+            isDoubleJumping = false;
 
 		} 
 		// IN THE AIR
 		else 
 		{
+            isJumping = false;
+			isDashing = false;
 			isGrounded = false;
-			isFalling = (moveDirection.y < -0.0015f * Time.deltaTime);
+			isFalling = (controller.velocity.y < -0.001f);
 			anim.setGrounded(false);
 			anim.setCrouch (false);
 		}
 
 	}
+    void FollowTarget()
+    {
+        distance = transform.position.x - enemy.position.x;
+        if(transform.position.x < enemy.position.x)
+        {
+            armature.localScale = new Vector3(Math.Abs(armature.localScale.x), armature.localScale.y, armature.localScale.z);
+            anim.characterFlip(false);
+        }
+        else
+        {
+            armature.localScale = new Vector3(-Math.Abs(armature.localScale.x), armature.localScale.y, armature.localScale.z);
+            anim.characterFlip(true); 
+        }
+        
+    }
 
 	// Set the acceleration to move the character
 	void MoveCharacter()
 	{
- 		// Normal acceleration
-		Vector3 acceleration = moveDirection * speed * Time.deltaTime;
+		//if(isGravity) moveDirection.y -= gravity; // Gravity effect
 
-		// Dash before run
-		if(runBoost) 
-		{
-			if(moveDirection.x>0) moveDirection.x += runBoostPower;
-			if(moveDirection.x<0) moveDirection.x -= runBoostPower;
-			runBoost = false;
+
+		if (isGravity) controller.gravityScale = gravityScale;
+		else controller.gravityScale = 0;
+
+        if (isAttacking)
+        {
+            if (isGrounded)
+            {
+                if (isDashing) isDashing=false;
+                return;
+            }
+        }
+
+		if (isAirDashing) {
+            controller.velocity = new Vector2(moveDirection.x * dashSpeed, 0);
+
+            velocityX = controller.velocity.x;
+            velocityY = controller.velocity.y;
+            anim.setVelocityX(velocityX);
+            anim.setVelocityY(velocityY);
+
+			airDashCounter -= 1;
+			if (airDashCounter <= 0) isAirDashing = false;
+			return;
 		}
+		else if (isDashing) {
+            controller.velocity = new Vector2(moveDirection.x * dashSpeed, controller.velocity.y);
+
+            anim.setRun(true);
+            velocityX = controller.velocity.x;
+            velocityY = controller.velocity.y;
+            anim.setVelocityX(velocityX);
+            anim.setVelocityY(velocityY);
+			dashCounter -= 1;
+			if (dashCounter <= 0) isDashing = false;
+			return;
+		}
+
+		// Normal acceleration
+		float accelerationX = moveDirection.x * speed;
+
+
+        if(!isRunning || !isGrounded)
+        {
+            anim.setRun(false);
+        }
 
 		// Running
 		if (isRunning && canRun) {
-			acceleration.x = moveDirection.x * runSpeed * Time.deltaTime; // running only affects horizontal speed
+            accelerationX = moveDirection.x * runSpeed; // running only affects horizontal speed
+            anim.setRun(true);
 		}
-		controller.Move (acceleration);
+        
+        
+		controller.velocity = new Vector2(accelerationX, controller.velocity.y);
+
+        velocityX = controller.velocity.x;
+        velocityY = controller.velocity.y;
+        anim.setVelocityX(velocityX);
+        anim.setVelocityY(velocityY);
+	}
+	void CheckInput()
+	{
+		
+		/*// print all commands to the console
+		if (Input.anyKeyDown) 
+		{
+			if(Input.GetButtonDown("Horizontal1"))
+			   Debug.Log("lol"); 
+			   
+			   }*/
+
+
+        /* MOVE INPUTS*/
+
+
+        // Check move
+        input.checkInputStates();
+
+        // check airdash state
+        if (input.isDoubleTap() && !isGrounded)
+        {
+            if ((input.lastTap == Direction.LEFT && canAirDashLeft) || (input.lastTap == Direction.RIGHT && canAirDashRight))
+            {
+                dashDirection = input.lastTap;
+                isAirDashing = true;
+            }
+        }
+        // check running state
+        if (input.isDoubleTap() && isGrounded)
+        {
+            isRunning = true;
+            isDashing = true;
+            dashDirection = input.lastTap;
+            dashCounter = dashDuration;
+        }
+        // stop running state when run button is released
+        if (!(input.isDoubleTapDown() || (input.isDoubleTap() && isGrounded)))
+        {
+            isRunning = false;
+        }
+
+        /* ATTACK INPUTS*/
+
+        // Return if AttackCooldown isn't over
+        bool canAttack = ((Time.time - attackTimer) >= attackCooldown);
+        if (!canAttack) return;
+
+        // Return if Attack animation isn't over
+        if (lastAttack != null && isAttacking)
+        {
+            isAttacking = !anim.isAnimationOver(lastAttack);
+            if (isAttacking) return;
+        }
+
+        // Check attack
+        input.checkAttack();
+
+        Command attack = null; 
+        isAttacking = false;
+
+        // Check if the player is executing an attack
+        foreach(Command available in input.availableAttack)
+        {
+            if(available.condition == null)
+            {
+                attack = available;
+                break;
+            }
+            else if(available.condition.checkPreCondition(this))
+            {
+                attack = available;
+                //this = attack.condition.setPostCondition(this);
+                break;
+            }
+        }
+
+        // Set the attack to execute if existing
+        if (attack != null)
+        {
+            lastAttack = attack;
+            isAttacking = true;
+
+            attackTimer = Time.time;
+            anim.setAttack(attack);
+            Debug.Log("Attack");
+            return;
+
+        }
 
 	}
-	
+
 	// Set up the animation depending on the states & inputs recorded
 	void SetAnimations()
 	{
-		// print all commands to the console
-		if (Input.anyKeyDown) 
-		{
-			Debug.Log(input.getCurrentKey().ToString()); 
-			
-		}
 
-		input.checkInputStates (); // set input states
-
-		// check airdash state
-		if (input.doubleTap && !controller.isGrounded) {
-			if ((input.doubleTapDirection == input.left && canAirDashLeft) || (input.doubleTapDirection == input.right && canAirDashRight)) {
-				dashDirection = input.doubleTapDirection;
-				isAirDashing = true;
-			}
-		}
-		// check running state
-		if (input.doubleTap && controller.isGrounded) {
-			isRunning = true;
-			runBoost = true;
-		}
-		// stop running state when run button is released
-		if (!(input.doubleTapDown || (input.doubleTap && controller.isGrounded)))
-		{
-			isRunning = false;
-		}
-		
-		anim.setAirDash (isAirDashing);
 		
 		// ON THE GROUND
-		if(controller.isGrounded)
+		if(isGrounded)
 		{
 			GroundControls();
 			
 		}
 		
 		// IN THE AIR
-		if (!controller.isGrounded) {
+		if (!isGrounded) {
 			AirControls();
 		}
 	}
@@ -165,108 +342,158 @@ public class Player : MonoBehaviour {
 	void GroundControls()
 	{
 
-		if (input.isPunching()) {
+		// DASHING
+		if (isDashing) {
 			isIdle = false;
-			isRunning = false;
-			anim.setPunch();
-		}
-		
-		if (!input.isMovingRight()&& !input.isMovingLeft())
-		{
-			anim.setDirectionX(Global.NONE);
-		}
-		
-		if (!input.isCrouching ()) {
-			anim.setCrouch (false);
-		}
+			isMoving = true;
+			moveDirection.y = (int)Direction.NONE;
 
-		if (input.isMovingRight()) {
-			isIdle = false;
-			isMoving = true;
-			if (input.isCrouching ()) moveDirection.x = Global.NONE;
-			else moveDirection.x = 1;
-			anim.setDirectionX(Global.RIGHT);
-		}
-		if (input.isMovingLeft()) {
-			isIdle = false;
-			isMoving = true;
-			if (input.isCrouching ()) moveDirection.x = Global.NONE;
-			else moveDirection.x = -1;
-			anim.setDirectionX(Global.LEFT);
-		} 
-		if (input.isCrouching ()) {
-			isIdle = false;
-			isMoving = false;
-			isRunning = false;
-			anim.setCrouch (true);
-		}
-		if (input.isJumping() && canJump) {
-			isIdle = false;
-			moveDirection.y = jumpPower;
-			anim.setJump();
+						if (dashDirection == Direction.RIGHT) {
+								anim.setDirectionX ((int)Direction.RIGHT);
+								moveDirection.x = (int)Direction.RIGHT;
+						}
+						else if (dashDirection == Direction.LEFT) {
+								anim.setDirectionX ((int)Direction.LEFT);
+								moveDirection.x = (int)Direction.LEFT;
+						}
+                        if (input.up() && !isJumping && canJump)
+                        {
+								isDashing = false;
+                                isJumping = true;
+								controller.velocity = new Vector2 (controller.velocity.x, 0);
+								controller.AddForce (new Vector2 (0, jumpPower));
+								anim.setJump ();
+								if (dashDirection == Direction.LEFT)
+										moveDirection.x = (int)Direction.LEFT;
+								else if (dashDirection == Direction.RIGHT)
+										moveDirection.x = (int)Direction.RIGHT;
+								else
+										moveDirection.x = (int)Direction.NONE;
+						}
+						if (input.down ()) {
+							isIdle = false;
+							isMoving = false;
+							isDashing = false;
+							isRunning = false;
+							moveDirection.x = (int)Direction.NONE;
+							anim.setCrouch (true);
+						}
+			
+				} else {
+						if (!input.right () && !input.left ()) {
+								anim.setDirectionX ((int)Direction.NONE);
+						}
+			
+						if (!input.down ()) {
+								anim.setCrouch (false);
+						}
+
+						if (input.right ()) {
+								isIdle = false;
+								isMoving = true;
+								if (input.down ())
+										moveDirection.x = (int)Direction.NONE;
+								else
+										moveDirection.x = 1;
+								anim.setDirectionX ((int)Direction.RIGHT);
+						}
+						if (input.left ()) {
+								isIdle = false;
+								isMoving = true;
+								if (input.down ())
+										moveDirection.x = (int)Direction.NONE;
+								else
+										moveDirection.x = -1;
+								anim.setDirectionX ((int)Direction.LEFT);
+						} 
+						if (input.down ()) {
+								isIdle = false;
+								isMoving = false;
+								isRunning = false;
+								anim.setCrouch (true);
+						}
+                        if (input.up() && !isJumping && canJump)
+                        {
+								isIdle = false;
+                                isJumping = true;
+								controller.velocity = new Vector2 (controller.velocity.x, 0);
+								controller.AddForce (new Vector2 (0, jumpPower));
+                                anim.setJump();
+						}
 		}
 		anim.setMoving (isMoving);
-		if (isIdle) {anim.setMoving (false);}
+		if (isIdle) {
+			anim.setMoving (false);
+		}
 		anim.setIdle (isIdle);
-		
-		moveDirection.y -= 0.001f * Time.deltaTime; // To compensate the IsGrounded bug
+
 	}
 
 	// Set up aircontrols animations
 	void AirControls()
 	{
-		
-		if (input.isPunching()) {
-			isIdle = false;
-			anim.setPunch();
+		anim.setAirDash (isAirDashing);
+
+		if (isFalling && canJump)
+		{
+			doubleJump = true;
 		}
 
-		if (!input.isMovingRight()&& !input.isMovingLeft())
+		if (!input.right()&& !input.left())
 		{
-			anim.setDirectionX(Global.NONE);
+			anim.setDirectionX((int)Direction.NONE);
 		}
 		// AIR - DASHING
 		if (isAirDashing) {
 			
+
+			isGravity = false;
 			isIdle = false;
 			isMoving = true;
-			moveDirection.y = Global.NONE;
+			moveDirection.y = (int)Direction.NONE;
 
 
-			if(canAirDashRight && dashDirection == input.right)
+			if(canAirDashRight  && dashDirection == Direction.RIGHT)
 			{
-				moveDirection.x = dashPower;
+				airDashCounter = airDashDuration;
+				moveDirection.x = (int)Direction.RIGHT;
 				canAirDashRight = false;
 			}
-			if(canAirDashLeft && dashDirection == input.left)
+			if(canAirDashLeft && dashDirection == Direction.LEFT)
 			{
-				moveDirection.x = -dashPower;
+				airDashCounter = airDashDuration;
+				moveDirection.x = (int)Direction.LEFT;
 				canAirDashLeft = false;
 			}
 
-			if(dashDirection == input.right) 
+			if(dashDirection == Direction.RIGHT) 
 			{
-				anim.setDirectionX(Global.RIGHT);
-				moveDirection.x -= antiDashPower * Time.deltaTime;
-				if(moveDirection.x<1 || input.isMovingLeft()){
+				anim.setDirectionX((int)Direction.RIGHT);
+				moveDirection.x = (int)Direction.RIGHT;
+				if(input.left()){
+					moveDirection.x = (int)Direction.NONE;
 					isAirDashing = false;
 				}
 			}
-			if(dashDirection == input.left){
-				anim.setDirectionX(Global.LEFT);
-				moveDirection.x += antiDashPower * Time.deltaTime;
-				if(moveDirection.x>-1  || input.isMovingRight()){
+			if(dashDirection == Direction.LEFT){
+				anim.setDirectionX((int)Direction.LEFT);
+				moveDirection.x = (int)Direction.LEFT;
+				if(input.right()){
+					moveDirection.x = (int)Direction.NONE;
 					isAirDashing = false;
 				}
 			}
-			if(input.isJumping () && canJump){
+            if (input.up() && doubleJump && !isDoubleJumping && canJump)
+            {
 				isAirDashing = false;
-				moveDirection.y = airJumpPower;
+				doubleJump = false;
+                isDoubleJumping = true;
+				controller.velocity = new Vector2(controller.velocity.x,0);
+				controller.AddForce(new Vector2(0,jumpPower));
 				anim.setJump ();
-				if(dashDirection == input.left) moveDirection.x = Global.LEFT;
-				else if(dashDirection == input.right) moveDirection.x = Global.RIGHT;
-				else moveDirection.x = Global.NONE;
-				canJump = false;
+				if(dashDirection == Direction.LEFT) moveDirection.x = (int)Direction.LEFT;
+				else if(dashDirection == Direction.RIGHT) moveDirection.x = (int)Direction.RIGHT;
+				else moveDirection.x = (int)Direction.NONE;
 			}
 			
 
@@ -275,28 +502,30 @@ public class Player : MonoBehaviour {
 		else 
 		{
 
-			if (input.isMovingRight ()) {
-					isIdle = false;
-					isMoving = true;
-				moveDirection.x = Global.RIGHT;
-					anim.setDirectionX (moveDirection.x);
+			if (input.right ()) {
+				isIdle = false;
+				isMoving = true;
+				moveDirection.x = (int)Direction.RIGHT;
+				anim.setDirectionX (moveDirection.x);
 			}
-			if (input.isMovingLeft ()) {
-					isIdle = false;
-					isMoving = true;
-				moveDirection.x = Global.LEFT;
-					anim.setDirectionX (moveDirection.x);
+			if (input.left ()) {
+				isIdle = false;
+				isMoving = true;
+				moveDirection.x = (int)Direction.LEFT;
+				anim.setDirectionX (moveDirection.x);
 			}
 
-			if (input.isJumping () && canJump) {
-					isIdle = false;
-					isMoving = false;
-					moveDirection.y = airJumpPower;
-				if(input.isMovingLeft()) moveDirection.x = Global.LEFT;
-				else if(input.isMovingRight()) moveDirection.x = Global.RIGHT;
-				else moveDirection.x = Global.NONE;
-					anim.setJump ();
-					canJump = false;
+			if (input.up () && doubleJump && !isDoubleJumping && canJump) {
+				isIdle = false;
+                isMoving = false;
+                doubleJump = false;
+                isDoubleJumping = true;
+				controller.velocity = new Vector2(controller.velocity.x,0);
+				controller.AddForce(new Vector2(0,jumpPower));
+				if(input.left()) moveDirection.x = (int)Direction.LEFT;
+				else if(input.right()) moveDirection.x = (int)Direction.RIGHT;
+				else moveDirection.x = (int)Direction.NONE;
+				anim.setJump ();
 			}
 
 			if (isFalling) {
@@ -304,40 +533,59 @@ public class Player : MonoBehaviour {
 					anim.setFall (isFalling);
 			}
 
-
-			moveDirection.y -= gravity * Time.deltaTime; // Gravity effect
-
 		}
 		anim.setMoving (isMoving);
 	}
 
 	void OnTouched(int damageType)
-	{
-		if (damageType == Global.HIGH) 
+	{/*
+		if (damageType == (int)Direction.HIGH) 
 		{
 
 		}
-		if (damageType == Global.MIDDLE) 
+		if (damageType == (int)Direction.MIDDLE) 
 		{
 		
 		}
-		if (damageType == Global.LOW) 
+		if (damageType == (int)Direction.LOW) 
 		{
 
-		}
+		}*/
 	}
-	/*
-	void OnTouchedExit(int damageType)
-	{
-		if (type == -1) 
+
+	void OnCollisionEnter2D(Collision2D collision) {
+		
+		/*if (collision.collider.tag == "Ground")
 		{
-			anim.anim.SetBool ("hitboxHigh", false);
-			anim.anim.SetBool ("hitboxLow", false);
-			
-		}
-		if(type == 0)
-			anim.anim.SetBool ("hitboxHigh",false);
-		if(type == 2)
-			anim.anim.SetBool ("hitboxLow",false);
-	}*/
+				//Debug.Log ("ground collision");
+				isGrounded = true;
+		}*/
+
+		/*
+		CharacterController enemyController = hit.collider as CharacterController;
+		if (enemyController != null) {
+				Vector3 hitDirection = Vector3.zero;
+				hitDirection.x = hit.moveDirection.x;
+				hitDirection.y = hit.moveDirection.y;
+				hitDirection.z = hit.moveDirection.z;
+
+				Debug.Log ("hitDirection.x = " + hitDirection.x);
+				Debug.Log ("hitDirection.y = " + hitDirection.y);
+				if (isRunning) {
+						enemyController.SimpleMove (hitDirection * runSpeed);
+				} else {
+						enemyController.SimpleMove (hitDirection * speed);
+				}
+				Debug.Log ("collision");
+		}*/
+	}
+	void OnCollisionExit2D(Collision2D collision)
+	{
+		/*if (collision.collider.tag == "Ground")
+		{
+			//Debug.Log ("ground collision");
+			isGrounded = false;
+		}*/
+	}
+
 }

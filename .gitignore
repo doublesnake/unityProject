@@ -65,12 +65,10 @@ Library/ScriptMapper
 Library/assetDatabase3
 Library/cache
 Library/expandedItems
-Library/metadata
 Library/previews
 Library/guidmapper
 
 Library/cache/*
-Library/metadata/*
 Library/previews/*
 Library/ScriptAssemblies/*
 
@@ -93,4 +91,3 @@ InspectorExpandedItems.asset
 MonoManager.asset
 NetworkManager.asset
 ScriptMapper
-metadata

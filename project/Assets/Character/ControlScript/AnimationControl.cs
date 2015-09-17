@@ -18,20 +18,28 @@ namespace AssemblyCSharp
 			public Animator anim;
 			
 			// direction ID
-			public const float BACKWARD = -1;
-			public const float FORWARD = 1;
-			public const float NULL = 0;
-			// Parameters ID
-			public string directionX = "directionX";
-			public string crouch = "crouch";
-			public string grounded = "grounded";
-			public string moving = "moving";
-			public string fall = "fall";
-			public string jump = "jump";
-			public string airdash = "airdash";
-			public string punch = "punch";
-			public string idle = "idle";
-			
+            public const float BACKWARD = -1;
+            public const float FORWARD = 1;
+            public const float NULL = 0;
+            // Parameters ID
+            public static string velocityX = "velocityX";
+            public static string velocityY = "velocityY";
+            public static string directionX = "directionX";
+            public static string crouch = "crouch";
+            public static string grounded = "grounded";
+            public static string moving = "moving";
+            public static string fall = "fall";
+            public static string run = "run";
+            public static string jump = "jump";
+            public static string airdash = "airdash";
+            public static string attack = "attack";
+            public static string idle = "idle";
+            public static string weak = "weak";
+            public static string medium = "medium";
+            public static string strong = "strong";
+
+            bool characterFlipped;
+
 			// Constructor
 			public AnimationControl( Animator a)
 			{
@@ -43,12 +51,16 @@ namespace AssemblyCSharp
 			public void setAirDash(bool value){
 				anim.SetBool (airdash, value);
 			}
-				public void setJump(){
-					anim.SetTrigger (jump);
+			public void setJump(){
+				anim.SetTrigger (jump);
 			}
 			public void setFall(bool value){
 				anim.SetBool (fall, value);
 			}
+            public void setRun(bool value)
+            {
+                anim.SetBool(run, value);
+            }
 			public void setGrounded(bool value){
 				anim.SetBool (grounded, value);
 			}
@@ -58,13 +70,40 @@ namespace AssemblyCSharp
 			public void setCrouch(bool value){
 				anim.SetBool (crouch,value);
 			}
+            public void setVelocityX(float value)
+            {
+                anim.SetFloat(velocityX, value);
+            }
+            public void setVelocityY(float value)
+            {
+                anim.SetFloat(velocityY, value);
+            }
 			public void setDirectionX(float dir){
-				anim.SetFloat (directionX,dir);
+                if (characterFlipped) anim.SetFloat(directionX, -dir);
+                else anim.SetFloat(directionX, dir);
 			}
-			public void setPunch(){
-				//anim.SetTrigger (punch);
-				anim.CrossFade("Punch",0);
+            public void characterFlip(bool value)
+            {
+                characterFlipped = value;
+            }
+			public void setAttack(Command attackCommand){
+                //anim.SetTrigger (weak);
+                anim.SetBool(attack, true);
+                anim.SetTrigger(attackCommand.launcher);
+                //lastAnimation = anim.GetCurrentAnimatorStateInfo(0).;
 			}
+            public bool isAnimationOver(Command attackCommand)
+            {
+                if (anim.GetCurrentAnimatorStateInfo(0).IsName(attackCommand.launcher))
+                    return false;
+                anim.SetBool(attack, false);
+                return true;
+                /*else
+                {
+                    anim.SetBool(attack, false);
+                    return true;
+                }*/
+            }
 		}
 }
 
