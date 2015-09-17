@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 71bc73689f092c64daaee13c59372fce
+timeCreated: 1437713151
+licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
@@ -313,6 +315,15 @@ ModelImporter:
     7400018: AirF
     7400020: Jump
     7400022: Default Take
+    7400024: WalkF
+    7400026: Idle
+    7400028: Dmg_bottom
+    7400030: Dmg_up
+    7400032: RunF
+    7400034: WalkB
+    7400036: W
+    7400038: M
+    7400040: S
     9500000: //RootNode
     13700000: Body_MeshPart0
     13700002: Body_MeshPart1
@@ -351,13 +362,28 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: 'MuscleClip ''model_unity'' conversion warning: ''Armature/Root/Character_Controller/Hips/Upper_leg_L''
+    animationImportWarnings: 'MuscleClip ''model_unity'' conversion warning: ''Armature/Root/Character_Controller/Hips/Spine/Chest''
+      has scale animation''. It is not supported.
+
+      MuscleClip ''model_unity'' conversion warning: ''Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L''
+      has scale animation''. It is not supported.
+
+      MuscleClip ''model_unity'' conversion warning: ''Armature/Root/Character_Controller/Hips/Spine/Chest''
+      has scale animation''. It is not supported.
+
+      MuscleClip ''model_unity'' conversion warning: ''Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L''
+      has scale animation''. It is not supported.
+
+      MuscleClip ''model_unity'' conversion warning: ''Armature/Root/Character_Controller/Hips/Upper_leg_L''
+      has scale animation''. It is not supported.
+
+      MuscleClip ''model_unity'' conversion warning: ''Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L''
       has scale animation''. It is not supported.
 
       MuscleClip ''model_unity'' conversion warning: ''Armature/Root/Character_Controller/Hips/Upper_leg_R''
       has scale animation''. It is not supported.
 
-      MuscleClip ''model_unity'' conversion warning: ''Armature/Root/Character_Controller/Hips/Spine/Chest''
+      MuscleClip ''model_unity'' conversion warning: ''Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R''
       has scale animation''. It is not supported.
 
 '
@@ -371,21 +397,21 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Default Take
-      takeName: Default Take
-      firstFrame: 1
-      lastFrame: 39
+      name: WalkF
+      takeName: WalkF
+      firstFrame: -1
+      lastFrame: 19
       wrapMode: 0
-      orientationOffsetY: 0
+      orientationOffsetY: 180
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
@@ -594,11 +620,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
     - serializedVersion: 16
       name: Jump
-      takeName: jump
+      takeName: Jump
       firstFrame: -1
-      lastFrame: 0
+      lastFrame: 4
       wrapMode: 0
-      orientationOffsetY: -90
+      orientationOffsetY: 180
       level: 0
       cycleOffset: 0
       loop: 0
@@ -606,7 +632,2893 @@ ModelImporter:
       loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 1
-      loopBlendPositionXZ: 0
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Character_Controller
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Breast_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Breast_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Cheek_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Cheek_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller/Eye_target_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller/Eye_target_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_L_0
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_R_0
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_001
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_L/Jaw_end_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_R/Jaw_end_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base/Tongue_middle
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base/Tongue_middle/Tongue_end
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tooth_B
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_B_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_B_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_T_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_T_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Tooth_T
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L/Index_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L/Index_middle_L/Index_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L/Little_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L/Little_middle_L/Little_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L/Middle_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L/Middle_middle_L/Middle_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L/Ring_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L/Ring_middle_L/Ring_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L/Thumb_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L/Thumb_middle_L/Thumb_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R/Index_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R/Index_middle_R/Index_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R/Little_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R/Little_middle_R/Little_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R/Middle_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R/Middle_middle_R/Middle_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R/Ring_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R/Ring_middle_R/Ring_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R/Thumb_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R/Thumb_middle_R/Thumb_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L/Toe_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R/Toe_R
+        weight: 1
+      - path: Body
+        weight: 0
+      - path: Eye_L
+        weight: 0
+      - path: Eye_R
+        weight: 0
+      - path: IMG-breast
+        weight: 0
+      - path: IMG-eye
+        weight: 0
+      - path: IMG-eyes
+        weight: 0
+      - path: IMG-face
+        weight: 0
+      - path: IMG-foot
+        weight: 0
+      - path: IMG-jaw
+        weight: 0
+      - path: IMG-teeth
+        weight: 0
+      - path: tongue
+        weight: 0
+      - path: tooth_B
+        weight: 0
+      - path: tooth_T
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: DashB
+      takeName: DashB
+      firstFrame: -1
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 180
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Character_Controller
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Breast_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Breast_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Cheek_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Cheek_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller/Eye_target_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller/Eye_target_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_L_0
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_R_0
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_001
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_L/Jaw_end_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_R/Jaw_end_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base/Tongue_middle
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base/Tongue_middle/Tongue_end
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tooth_B
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_B_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_B_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_T_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_T_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Tooth_T
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L/Index_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L/Index_middle_L/Index_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L/Little_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L/Little_middle_L/Little_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L/Middle_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L/Middle_middle_L/Middle_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L/Ring_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L/Ring_middle_L/Ring_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L/Thumb_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L/Thumb_middle_L/Thumb_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R/Index_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R/Index_middle_R/Index_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R/Little_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R/Little_middle_R/Little_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R/Middle_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R/Middle_middle_R/Middle_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R/Ring_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R/Ring_middle_R/Ring_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R/Thumb_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R/Thumb_middle_R/Thumb_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L/Toe_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R/Toe_R
+        weight: 1
+      - path: Body
+        weight: 0
+      - path: Eye_L
+        weight: 0
+      - path: Eye_R
+        weight: 0
+      - path: IMG-breast
+        weight: 0
+      - path: IMG-eye
+        weight: 0
+      - path: IMG-eyes
+        weight: 0
+      - path: IMG-face
+        weight: 0
+      - path: IMG-foot
+        weight: 0
+      - path: IMG-jaw
+        weight: 0
+      - path: IMG-teeth
+        weight: 0
+      - path: tongue
+        weight: 0
+      - path: tooth_B
+        weight: 0
+      - path: tooth_T
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: DashF
+      takeName: DashF
+      firstFrame: -1
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 180
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Character_Controller
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Breast_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Breast_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Cheek_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Cheek_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller/Eye_target_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller/Eye_target_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_L_0
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_R_0
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_001
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_L/Jaw_end_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_R/Jaw_end_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base/Tongue_middle
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base/Tongue_middle/Tongue_end
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tooth_B
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_B_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_B_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_T_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_T_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Tooth_T
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L/Index_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L/Index_middle_L/Index_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L/Little_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L/Little_middle_L/Little_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L/Middle_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L/Middle_middle_L/Middle_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L/Ring_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L/Ring_middle_L/Ring_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L/Thumb_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L/Thumb_middle_L/Thumb_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R/Index_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R/Index_middle_R/Index_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R/Little_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R/Little_middle_R/Little_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R/Middle_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R/Middle_middle_R/Middle_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R/Ring_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R/Ring_middle_R/Ring_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R/Thumb_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R/Thumb_middle_R/Thumb_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L/Toe_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R/Toe_R
+        weight: 1
+      - path: Body
+        weight: 0
+      - path: Eye_L
+        weight: 0
+      - path: Eye_R
+        weight: 0
+      - path: IMG-breast
+        weight: 0
+      - path: IMG-eye
+        weight: 0
+      - path: IMG-eyes
+        weight: 0
+      - path: IMG-face
+        weight: 0
+      - path: IMG-foot
+        weight: 0
+      - path: IMG-jaw
+        weight: 0
+      - path: IMG-teeth
+        weight: 0
+      - path: tongue
+        weight: 0
+      - path: tooth_B
+        weight: 0
+      - path: tooth_T
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Idle
+      takeName: Idle
+      firstFrame: 3
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 180
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Character_Controller
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Breast_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Breast_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Cheek_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Cheek_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller/Eye_target_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller/Eye_target_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_L_0
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_R_0
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_001
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_L/Jaw_end_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_R/Jaw_end_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base/Tongue_middle
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base/Tongue_middle/Tongue_end
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tooth_B
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_B_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_B_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_T_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_T_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Tooth_T
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L/Index_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L/Index_middle_L/Index_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L/Little_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L/Little_middle_L/Little_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L/Middle_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L/Middle_middle_L/Middle_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L/Ring_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L/Ring_middle_L/Ring_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L/Thumb_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L/Thumb_middle_L/Thumb_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R/Index_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R/Index_middle_R/Index_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R/Little_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R/Little_middle_R/Little_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R/Middle_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R/Middle_middle_R/Middle_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R/Ring_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R/Ring_middle_R/Ring_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R/Thumb_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R/Thumb_middle_R/Thumb_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L/Toe_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R/Toe_R
+        weight: 1
+      - path: Body
+        weight: 0
+      - path: Eye_L
+        weight: 0
+      - path: Eye_R
+        weight: 0
+      - path: IMG-breast
+        weight: 0
+      - path: IMG-eye
+        weight: 0
+      - path: IMG-eyes
+        weight: 0
+      - path: IMG-face
+        weight: 0
+      - path: IMG-foot
+        weight: 0
+      - path: IMG-jaw
+        weight: 0
+      - path: IMG-teeth
+        weight: 0
+      - path: tongue
+        weight: 0
+      - path: tooth_B
+        weight: 0
+      - path: tooth_T
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Dmg_bottom
+      takeName: Dmg_bottom
+      firstFrame: -1
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Character_Controller
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Breast_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Breast_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Cheek_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Cheek_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller/Eye_target_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller/Eye_target_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_L_0
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_R_0
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_001
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_L/Jaw_end_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_R/Jaw_end_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base/Tongue_middle
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base/Tongue_middle/Tongue_end
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tooth_B
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_B_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_B_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_T_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_T_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Tooth_T
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L/Index_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L/Index_middle_L/Index_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L/Little_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L/Little_middle_L/Little_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L/Middle_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L/Middle_middle_L/Middle_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L/Ring_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L/Ring_middle_L/Ring_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L/Thumb_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L/Thumb_middle_L/Thumb_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R/Index_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R/Index_middle_R/Index_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R/Little_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R/Little_middle_R/Little_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R/Middle_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R/Middle_middle_R/Middle_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R/Ring_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R/Ring_middle_R/Ring_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R/Thumb_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R/Thumb_middle_R/Thumb_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L/Toe_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R/Toe_R
+        weight: 1
+      - path: Body
+        weight: 0
+      - path: Eye_L
+        weight: 0
+      - path: Eye_R
+        weight: 0
+      - path: IMG-breast
+        weight: 0
+      - path: IMG-eye
+        weight: 0
+      - path: IMG-eyes
+        weight: 0
+      - path: IMG-face
+        weight: 0
+      - path: IMG-foot
+        weight: 0
+      - path: IMG-jaw
+        weight: 0
+      - path: IMG-teeth
+        weight: 0
+      - path: tongue
+        weight: 0
+      - path: tooth_B
+        weight: 0
+      - path: tooth_T
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Dmg_up
+      takeName: Dmg_up
+      firstFrame: -1
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Character_Controller
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Breast_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Breast_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Cheek_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Cheek_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller/Eye_target_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller/Eye_target_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_L_0
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_R_0
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_001
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_L/Jaw_end_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_R/Jaw_end_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base/Tongue_middle
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base/Tongue_middle/Tongue_end
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tooth_B
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_B_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_B_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_T_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_T_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Tooth_T
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L/Index_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L/Index_middle_L/Index_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L/Little_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L/Little_middle_L/Little_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L/Middle_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L/Middle_middle_L/Middle_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L/Ring_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L/Ring_middle_L/Ring_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L/Thumb_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L/Thumb_middle_L/Thumb_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R/Index_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R/Index_middle_R/Index_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R/Little_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R/Little_middle_R/Little_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R/Middle_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R/Middle_middle_R/Middle_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R/Ring_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R/Ring_middle_R/Ring_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R/Thumb_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R/Thumb_middle_R/Thumb_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L/Toe_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R/Toe_R
+        weight: 1
+      - path: Body
+        weight: 0
+      - path: Eye_L
+        weight: 0
+      - path: Eye_R
+        weight: 0
+      - path: IMG-breast
+        weight: 0
+      - path: IMG-eye
+        weight: 0
+      - path: IMG-eyes
+        weight: 0
+      - path: IMG-face
+        weight: 0
+      - path: IMG-foot
+        weight: 0
+      - path: IMG-jaw
+        weight: 0
+      - path: IMG-teeth
+        weight: 0
+      - path: tongue
+        weight: 0
+      - path: tooth_B
+        weight: 0
+      - path: tooth_T
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: RunF
+      takeName: RunF
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 180
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Character_Controller
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Breast_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Breast_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Cheek_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Cheek_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller/Eye_target_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller/Eye_target_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_L_0
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_R_0
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_001
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_L/Jaw_end_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_R/Jaw_end_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base/Tongue_middle
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base/Tongue_middle/Tongue_end
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tooth_B
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_B_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_B_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_T_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_T_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Tooth_T
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L/Index_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L/Index_middle_L/Index_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L/Little_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L/Little_middle_L/Little_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L/Middle_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L/Middle_middle_L/Middle_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L/Ring_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L/Ring_middle_L/Ring_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L/Thumb_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L/Thumb_middle_L/Thumb_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R/Index_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R/Index_middle_R/Index_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R/Little_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R/Little_middle_R/Little_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R/Middle_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R/Middle_middle_R/Middle_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R/Ring_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R/Ring_middle_R/Ring_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R/Thumb_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R/Thumb_middle_R/Thumb_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L/Toe_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R/Toe_R
+        weight: 1
+      - path: Body
+        weight: 0
+      - path: Eye_L
+        weight: 0
+      - path: Eye_R
+        weight: 0
+      - path: IMG-breast
+        weight: 0
+      - path: IMG-eye
+        weight: 0
+      - path: IMG-eyes
+        weight: 0
+      - path: IMG-face
+        weight: 0
+      - path: IMG-foot
+        weight: 0
+      - path: IMG-jaw
+        weight: 0
+      - path: IMG-teeth
+        weight: 0
+      - path: tongue
+        weight: 0
+      - path: tooth_B
+        weight: 0
+      - path: tooth_T
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: WalkB
+      takeName: WalkB
+      firstFrame: -1
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 180
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Character_Controller
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Breast_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Breast_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Cheek_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Cheek_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller/Eye_target_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller/Eye_target_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_L_0
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_R_0
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_001
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_L/Jaw_end_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_R/Jaw_end_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base/Tongue_middle
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base/Tongue_middle/Tongue_end
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tooth_B
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_B_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_B_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_T_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_T_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Tooth_T
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L/Index_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L/Index_middle_L/Index_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L/Little_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L/Little_middle_L/Little_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L/Middle_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L/Middle_middle_L/Middle_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L/Ring_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L/Ring_middle_L/Ring_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L/Thumb_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L/Thumb_middle_L/Thumb_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R/Index_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R/Index_middle_R/Index_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R/Little_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R/Little_middle_R/Little_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R/Middle_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R/Middle_middle_R/Middle_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R/Ring_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R/Ring_middle_R/Ring_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R/Thumb_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R/Thumb_middle_R/Thumb_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L/Toe_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R/Toe_R
+        weight: 1
+      - path: Body
+        weight: 0
+      - path: Eye_L
+        weight: 0
+      - path: Eye_R
+        weight: 0
+      - path: IMG-breast
+        weight: 0
+      - path: IMG-eye
+        weight: 0
+      - path: IMG-eyes
+        weight: 0
+      - path: IMG-face
+        weight: 0
+      - path: IMG-foot
+        weight: 0
+      - path: IMG-jaw
+        weight: 0
+      - path: IMG-teeth
+        weight: 0
+      - path: tongue
+        weight: 0
+      - path: tooth_B
+        weight: 0
+      - path: tooth_T
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: W
+      takeName: W
+      firstFrame: -1
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 180
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Character_Controller
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Breast_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Breast_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Cheek_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Cheek_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller/Eye_target_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller/Eye_target_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_L_0
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_R_0
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_001
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_L/Jaw_end_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_R/Jaw_end_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base/Tongue_middle
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base/Tongue_middle/Tongue_end
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tooth_B
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_B_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_B_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_T_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_T_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Tooth_T
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L/Index_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L/Index_middle_L/Index_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L/Little_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L/Little_middle_L/Little_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L/Middle_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L/Middle_middle_L/Middle_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L/Ring_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L/Ring_middle_L/Ring_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L/Thumb_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L/Thumb_middle_L/Thumb_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R/Index_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R/Index_middle_R/Index_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R/Little_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R/Little_middle_R/Little_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R/Middle_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R/Middle_middle_R/Middle_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R/Ring_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R/Ring_middle_R/Ring_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R/Thumb_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R/Thumb_middle_R/Thumb_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L/Toe_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R/Toe_R
+        weight: 1
+      - path: Body
+        weight: 0
+      - path: Eye_L
+        weight: 0
+      - path: Eye_R
+        weight: 0
+      - path: IMG-breast
+        weight: 0
+      - path: IMG-eye
+        weight: 0
+      - path: IMG-eyes
+        weight: 0
+      - path: IMG-face
+        weight: 0
+      - path: IMG-foot
+        weight: 0
+      - path: IMG-jaw
+        weight: 0
+      - path: IMG-teeth
+        weight: 0
+      - path: tongue
+        weight: 0
+      - path: tooth_B
+        weight: 0
+      - path: tooth_T
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: M
+      takeName: M
+      firstFrame: -1
+      lastFrame: 0
+      wrapMode: 0
+      orientationOffsetY: 180
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Character_Controller
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Breast_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Breast_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Cheek_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Cheek_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller/Eye_target_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller/Eye_target_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_L_0
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_R_0
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_001
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_L/Jaw_end_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_R/Jaw_end_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base/Tongue_middle
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base/Tongue_middle/Tongue_end
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tooth_B
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_B_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_B_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_T_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_T_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Tooth_T
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L/Index_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L/Index_middle_L/Index_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L/Little_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L/Little_middle_L/Little_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L/Middle_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L/Middle_middle_L/Middle_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L/Ring_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L/Ring_middle_L/Ring_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L/Thumb_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L/Thumb_middle_L/Thumb_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R/Index_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R/Index_middle_R/Index_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R/Little_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R/Little_middle_R/Little_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R/Middle_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R/Middle_middle_R/Middle_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R/Ring_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R/Ring_middle_R/Ring_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R/Thumb_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R/Thumb_middle_R/Thumb_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L/Toe_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R/Toe_R
+        weight: 1
+      - path: Body
+        weight: 0
+      - path: Eye_L
+        weight: 0
+      - path: Eye_R
+        weight: 0
+      - path: IMG-breast
+        weight: 0
+      - path: IMG-eye
+        weight: 0
+      - path: IMG-eyes
+        weight: 0
+      - path: IMG-face
+        weight: 0
+      - path: IMG-foot
+        weight: 0
+      - path: IMG-jaw
+        weight: 0
+      - path: IMG-teeth
+        weight: 0
+      - path: tongue
+        weight: 0
+      - path: tooth_B
+        weight: 0
+      - path: tooth_T
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: S
+      takeName: S
+      firstFrame: -1
+      lastFrame: 11
+      wrapMode: 0
+      orientationOffsetY: 180
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Character_Controller
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Breast_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Breast_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Cheek_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Cheek_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller/Eye_target_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller/Eye_target_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_L_0
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_R_0
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_001
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_L/Jaw_end_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_R/Jaw_end_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base/Tongue_middle
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base/Tongue_middle/Tongue_end
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tooth_B
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_B_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_B_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_T_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_T_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Tooth_T
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L/Index_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L/Index_middle_L/Index_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L/Little_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L/Little_middle_L/Little_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L/Middle_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L/Middle_middle_L/Middle_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L/Ring_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L/Ring_middle_L/Ring_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L/Thumb_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L/Thumb_middle_L/Thumb_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R/Index_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R/Index_middle_R/Index_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R/Little_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R/Little_middle_R/Little_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R/Middle_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R/Middle_middle_R/Middle_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R/Ring_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R/Ring_middle_R/Ring_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R/Thumb_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R/Thumb_middle_R/Thumb_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L/Toe_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R/Toe_R
+        weight: 1
+      - path: Body
+        weight: 0
+      - path: Eye_L
+        weight: 0
+      - path: Eye_R
+        weight: 0
+      - path: IMG-breast
+        weight: 0
+      - path: IMG-eye
+        weight: 0
+      - path: IMG-eyes
+        weight: 0
+      - path: IMG-face
+        weight: 0
+      - path: IMG-foot
+        weight: 0
+      - path: IMG-jaw
+        weight: 0
+      - path: IMG-teeth
+        weight: 0
+      - path: tongue
+        weight: 0
+      - path: tooth_B
+        weight: 0
+      - path: tooth_T
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Crouch
+      takeName: Crouch
+      firstFrame: -1
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 180
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Character_Controller
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Breast_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Breast_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Cheek_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Cheek_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller/Eye_target_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller/Eye_target_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_L_0
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_R_0
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_001
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_L/Jaw_end_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_R/Jaw_end_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base/Tongue_middle
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base/Tongue_middle/Tongue_end
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tooth_B
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_B_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_B_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_T_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_T_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Tooth_T
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L/Index_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L/Index_middle_L/Index_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L/Little_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L/Little_middle_L/Little_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L/Middle_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L/Middle_middle_L/Middle_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L/Ring_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L/Ring_middle_L/Ring_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L/Thumb_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L/Thumb_middle_L/Thumb_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R/Index_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R/Index_middle_R/Index_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R/Little_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R/Little_middle_R/Little_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R/Middle_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R/Middle_middle_R/Middle_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R/Ring_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R/Ring_middle_R/Ring_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R/Thumb_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R/Thumb_middle_R/Thumb_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L/Toe_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R/Toe_R
+        weight: 1
+      - path: Body
+        weight: 0
+      - path: Eye_L
+        weight: 0
+      - path: Eye_R
+        weight: 0
+      - path: IMG-breast
+        weight: 0
+      - path: IMG-eye
+        weight: 0
+      - path: IMG-eyes
+        weight: 0
+      - path: IMG-face
+        weight: 0
+      - path: IMG-foot
+        weight: 0
+      - path: IMG-jaw
+        weight: 0
+      - path: IMG-teeth
+        weight: 0
+      - path: tongue
+        weight: 0
+      - path: tooth_B
+        weight: 0
+      - path: tooth_T
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: AirB
+      takeName: AirB
+      firstFrame: 14
+      lastFrame: 15
+      wrapMode: 0
+      orientationOffsetY: 180
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Character_Controller
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Breast_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Breast_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Cheek_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Cheek_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller/Eye_target_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_Controller/Eye_target_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_L_0
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Eye_R_0
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_001
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_L/Jaw_end_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Jaw_R/Jaw_end_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base/Tongue_middle
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tongue_base/Tongue_middle/Tongue_end
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Jaw/Tooth_B
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_B_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_B_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_T_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lid_T_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_B_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF_L
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Lips_T_DEF_R
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Neck/Head/Tooth_T
+        weight: 0
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L/Index_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Index_base_L/Index_middle_L/Index_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L/Little_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Little_base_L/Little_middle_L/Little_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L/Middle_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Middle_base_L/Middle_middle_L/Middle_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L/Ring_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Ring_base_L/Ring_middle_L/Ring_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L/Thumb_middle_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_L/Upper_arm_L/Forearm_L/Hand_L/Thumb_Base_L/Thumb_middle_L/Thumb_end_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R/Index_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Index_base_R/Index_middle_R/Index_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R/Little_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Little_base_R/Little_middle_R/Little_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R/Middle_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Middle_base_R/Middle_middle_R/Middle_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R/Ring_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Ring_base_R/Ring_middle_R/Ring_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R/Thumb_middle_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Spine/Chest/Shoulder_R/Upper_arm_R/Forearm_R/Hand_R/Thumb_Base_R/Thumb_middle_R/Thumb_end_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_L/Lower_leg_L/Foot_L/Toe_L
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R
+        weight: 1
+      - path: Armature/Root/Character_Controller/Hips/Upper_leg_R/Lower_leg_R/Foot_R/Toe_R
+        weight: 1
+      - path: Body
+        weight: 0
+      - path: Eye_L
+        weight: 0
+      - path: Eye_R
+        weight: 0
+      - path: IMG-breast
+        weight: 0
+      - path: IMG-eye
+        weight: 0
+      - path: IMG-eyes
+        weight: 0
+      - path: IMG-face
+        weight: 0
+      - path: IMG-foot
+        weight: 0
+      - path: IMG-jaw
+        weight: 0
+      - path: IMG-teeth
+        weight: 0
+      - path: tongue
+        weight: 0
+      - path: tooth_B
+        weight: 0
+      - path: tooth_T
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: AirF
+      takeName: AirF
+      firstFrame: 7
+      lastFrame: 9
+      wrapMode: 0
+      orientationOffsetY: 180
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
@@ -1749,11 +4661,11 @@ ModelImporter:
       rotation: {x: 1.0457283e-08, y: .999999464, z: -.00103203498, w: -1.1519609e-05}
       scale: {x: .142238304, y: .396561474, z: .139086664}
       transformModified: 1
-    armTwist: .430999994
-    foreArmTwist: .312999994
+    armTwist: .270000011
+    foreArmTwist: .340000004
     upperLegTwist: .476000011
     legTwist: 0
-    armStretch: .218999997
+    armStretch: .331999987
     legStretch: .310000002
     feetSpacing: 0
     rootMotionBoneName: 

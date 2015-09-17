@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -16,165 +17,348 @@ namespace AssemblyCSharp
 	/* Class to manage inputs and mapping */
 	public class InputControl
 	{
+		public enum Tap{NONE,SINGLE,RELEASED,DOUBLE,DOUBLEPRESSED};
+		public enum Attack{NEW,COMBO};
+
+		public Tap tapState = Tap.NONE;
+        public Attack attackState = Attack.NEW;
 		// Double Tap variables
 		public float tapCooldown = 0.3f;
-		public int tapCount = 0;
-		public float runPressTime = 0.3f;
+		public float tapMaxDuration = 0.2f;
+		public float runPressTime = 1f;
 		public float lastTapTime = 0;
 		public bool doubleTap = false;
 		public bool doubleTapDown = false;
-		public KeyCode lastKeyDown = KeyCode.None;
+		public Direction lastKeyDown = Direction.NONE;
+        public Direction lastTap = Direction.NONE;
 		public float lastDashTime = 0f;
-		
-		
-		// Keycode Mapping variables
-		public KeyCode left;
-		public KeyCode up;
-		public KeyCode right;
-		public KeyCode down;
-		public KeyCode punch;
+
+
+		public float sensitivity = 0.1f;
+
+		public int playerId = 1;
 		
 		// State variables
-		private bool canMove;
 		private bool doubleTapLeft;
 		private bool doubleTapRight;
 		private bool doubleTapDownLeft;
 		private bool doubleTapDownRight;
-		public KeyCode doubleTapDirection;
-		
+
+        private Command[] attackList;
+        private List<Command> possibleAttack = new List<Command>();
+        public List<Command> availableAttack = new List<Command>();
+
 		// Constructor
-		public InputControl()
+        public InputControl(Command[] attacks, int id)
+        {
+            playerId = id;
+            this.attackList = attacks;
+
+        }
+		public bool left()
 		{
-			inputP1 ();
-		}
-		// Constructor
-		public InputControl(int id)
-		{
-			if (id == 1) inputP1 ();
-			else inputP2 ();
-		}
-		public void inputP1()
-		{
-			/*left = KeyCode.A;
-			up = KeyCode.W;
-			right = KeyCode.D;
-			punch = KeyCode.Keypad1;*/
-			
-			left = KeyCode.Q;
-			up = KeyCode.Z;
-			right = KeyCode.D;
-			down = KeyCode.S;
-			punch = KeyCode.Space;
-		}
-		public void inputP2()
-		{
-			/*left = KeyCode.A;
-			up = KeyCode.W;
-			right = KeyCode.D;
-			punch = KeyCode.Keypad1;*/
-			
-			left = KeyCode.LeftArrow;
-			up = KeyCode.UpArrow;
-			right = KeyCode.RightArrow;
-			down = KeyCode.DownArrow;
-			punch = KeyCode.Keypad1;
-		}
-		
-		public bool isMovingLeft()
-		{
-			if (Input.GetKey (left)) 
+			if (Input.GetAxis("Horizontal"+playerId.ToString()) < -sensitivity)
 			{
 				return true;
 			}
 			return false;
 		}
 		
-		public bool isJumping()
+		public bool up()
 		{
-			if (Input.GetKeyDown (up)) 
+			if (Input.GetAxis("Vertical"+playerId.ToString()) > sensitivity)
 				return true;
 			return false;
 		}
 
-		public bool isCrouching()
+		public bool down()
 		{
-			if (Input.GetKey (down)) 
+			if (Input.GetAxis("Vertical"+playerId.ToString()) < -sensitivity)
 				return true;
 			return false;
 		}
 		
-		public bool isMovingRight()
+		public bool right()
 		{
-			if (Input.GetKey (right)) 
+			if (Input.GetAxis("Horizontal"+playerId.ToString()) > sensitivity)
 			{
 				return true;
 			}
 			return false;
 		}
-		public bool isPunching()
+		public bool weak()
 		{
-			if (Input.GetKeyDown (punch))
+			if (Input.GetButtonDown ("Weak"+playerId.ToString()))
 				return true;
 			return false;
 		}
-		
-		public void checkInputStates()
+        public bool medium()
+        {
+            if (Input.GetButton("Medium" + playerId.ToString()))
+                return true;
+            return false;
+        }
+		public bool isDoubleTap()
 		{
-
-			if (doubleTap) {
-				if(Input.GetKey(lastKeyDown))
+			return (doubleTapLeft || doubleTapRight);
+		}
+		public bool validateButton(GameButton button)
+        {
+            bool valid = false;
+            switch (button)
+            {
+                case GameButton.DOWN:
+                    if(down()) valid = true;
+                    break;
+                case GameButton.DOWN_L:
+                    if (down() && left()) valid = true;
+                    break;
+                case GameButton.DOWN_R:
+                    if (down() && right()) valid = true;
+                    break;
+                case GameButton.LEFT:
+                    if (left()) valid = true;
+                    break;
+                case GameButton.RIGHT:
+                    if (right()) valid = true;
+                    break;
+                case GameButton.UP:
+                    if (up()) valid = true;
+                    break;
+                case GameButton.UP_L:
+                    if (up() && left()) valid = true;
+                    break;
+                case GameButton.UP_R:
+                    if (up() && right()) valid = true;
+                    break;
+                case GameButton.WEAK:
+                    if (weak()) valid = true;
+                    break;
+                case GameButton.MEDIUM:
+                    if (medium()) valid = true;
+                    break;
+                case GameButton.STRONG:
+                    if (weak()) valid = true;
+                    break;
+                default:
+                    break;
+            }
+            return valid;
+        }
+		public bool isDoubleTapDown()
+		{
+			return ((doubleTapDownLeft || doubleTapLeft) || (doubleTapDownRight||doubleTapRight));
+		}
+		public void checkAttack()
+		{
+			availableAttack.Clear();
+			List<Command> temp = new List<Command>();
+            switch (attackState)
+            {
+                case Attack.NEW:
+                    possibleAttack.Clear();
+					possibleAttack.AddRange(attackList);
+                    foreach(Command attack in possibleAttack)
+                    {
+		                if(!attack.isCombination)
+		                {
+		                    if(!(attack.button==GameButton.UNKNOWN || !validateButton(attack.button))) temp.Add(attack);
+		                }
+                       	else
+                        {
+                            if (!(attack.combinationKey == null || attack.combinationKey[attack.counter] == null))
+                            {
+                                foreach(GameButton button in attack.combinationKey[attack.counter])
+                                {
+                                    if(validateButton(button))
+                                    {
+										temp.Add(attack);
+                                    }
+                                }
+                            }
+                        }
+                    }
+					possibleAttack = temp;
+                    if(possibleAttack.Count>0)
+                    {
+                        bool canAttack = false;
+                        foreach(Command attack in possibleAttack)
+                        {
+                            attack.incrementCounter();
+                            if (attack.counter == 0)
+                            {
+                                availableAttack.Add(attack);
+                                canAttack = true;
+                            }
+                        }
+                        if (!canAttack) attackState = Attack.COMBO;
+                    }
+                    break;
+			case Attack.COMBO:
+				foreach(Command attack in possibleAttack)
 				{
-					doubleTapDown = true;
-					doubleTap = false;
-					Debug.Log("RUN");
-				}
-				else
-				{
-					doubleTap = false;
-				}
-				return;
-			}
-
-			if (doubleTapDown) {
-				if(!Input.GetKey(lastKeyDown))
-				{
-					doubleTapDown = false;
-				}
-				return;
-			}
-
-			if (Input.anyKeyDown) {
-				KeyCode currentKey = getCurrentKey ();
-				if (tapCount == 1 && currentKey == lastKeyDown) {
-					
-					if (Time.time - lastTapTime < tapCooldown) {
-						doubleTapDirection = lastKeyDown;
-						Debug.Log("DASH");
-						doubleTap = true;
-						tapCount = 0;
+					if(!attack.isCombination)
+					{
+						if(!(attack.button==GameButton.UNKNOWN || !validateButton(attack.button))) temp.Add(attack);
+					}
+					else
+					{
+						if (!(attack.combinationKey == null || attack.combinationKey[attack.counter] == null))
+						{
+							foreach(GameButton button in attack.combinationKey[attack.counter])
+							{
+								if(validateButton(button))
+								{
+									temp.Add(attack);
+								}
+							}
+						}
 					}
 				}
-				if (!doubleTap) {
-					lastKeyDown = (currentKey != KeyCode.None) ? currentKey : lastKeyDown;
-					lastTapTime = Time.time;
-					
-					tapCount = 1;
-				}
+				possibleAttack = temp;
+	            if(possibleAttack.Count>0)
+	            {
+	                foreach(Command attack in possibleAttack)
+	                {
+	                    attack.incrementCounter();
+	                    if (attack.counter == 0)
+	                    {
+	                        availableAttack.Add(attack);
+	                        attackState = Attack.NEW;
+	                    }
+	                }
+	            }
+	            else
+	            {
+	                attackState = Attack.NEW;
+	            }
+	            break;
+            }
+		}
+		public void checkInputStates()
+		{
+			switch (tapState) {
+				case Tap.NONE:
+					doubleTapDown =false;
+					doubleTapLeft = false;
+					doubleTapRight = false;
+					if (!left() && !right())
+					{
+						tapState = Tap.SINGLE;
+					}
+					break;
+				case Tap.SINGLE:
+					if (left()) 
+					{
+						lastTap = Direction.LEFT;
+						tapState = Tap.RELEASED;
+						lastTapTime = Time.time;
+					}
+					else if (right())
+					{
+						lastTap = Direction.RIGHT;
+						tapState = Tap.RELEASED;
+						lastTapTime = Time.time;
+					}
+					break;
+				case Tap.RELEASED:
+					if (Time.time - lastTapTime < tapMaxDuration)
+					{
+							if(lastTap == Direction.LEFT)
+							{
+								if(!left())
+								{
+							tapState = Tap.DOUBLE;
+							lastTapTime = Time.time;
+								}
+							}
+							else if(lastTap == Direction.RIGHT)
+							{
+								if(!right())
+								{
+							tapState = Tap.DOUBLE;
+							lastTapTime = Time.time;
+								}
+							}
+					}
+					else tapState = Tap.NONE;
+					break;
+				case Tap.DOUBLE:
+				if(Time.time - lastTapTime < tapMaxDuration)
+					{
+						if(lastTap == Direction.LEFT)
+						{
+							if(right())
+							{
+								tapState = Tap.NONE;
+							}
+							else if(left())
+							{
+								doubleTapLeft = true;
+								tapState = Tap.DOUBLEPRESSED;
+							}
+						}
+						else if(lastTap == Direction.RIGHT)
+						{
+							if(left())
+							{
+								tapState = Tap.NONE;
+							}
+							else if(right())
+							{
+								doubleTapRight = true;
+								tapState = Tap.DOUBLEPRESSED;
+							}
+						}
+					}
+					else{
+						tapState = Tap.NONE;
+					}
+					break;
+			case Tap.DOUBLEPRESSED:
+				if(doubleTapLeft || doubleTapDownLeft)
+				{
+						doubleTapLeft = false;
+						doubleTapDownLeft = true;
+						if(right() || !left()) 
+						{
+							tapState = Tap.NONE;
+							doubleTapDown = false;
+							doubleTapLeft = false;
+							doubleTapDownLeft = false;
+						}
+					}
+				else if(doubleTapRight || doubleTapDownRight)
+				{
+						doubleTapRight = false;
+						doubleTapDownRight = true;
+						if(left() || !right())
+						{
+							tapState = Tap.NONE;
+							doubleTapDown = false;
+							doubleTapRight = false;
+							doubleTapDownRight = false;
+						}
+					}
+					break;
+			default: 
+				tapState = Tap.NONE;
+				break;
 			}
 		}
 
-		public KeyCode getCurrentKey()
+		/*public  getCurrentKey()
 		{
-			if (Input.GetKeyDown (left))
-				return left;
-			if (Input.GetKeyDown (right))
-				return right;
-			if (Input.GetKeyDown (up))
+			if (left())
+				return Direction.LEFT;
+			if (right())
+				return Direction.RIGHT;
+			if (isJumping())
 				return up;
-			if (Input.GetKeyDown (punch))
+			if (isPunching())
 				return punch;
 			return KeyCode.None;
-		}
+		}*/
 	}
 }
 

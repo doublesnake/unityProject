@@ -10,19 +10,15 @@
 using System;
 namespace AssemblyCSharp
 {
-	public class Global
+	public enum Direction
 	{
 		
-		public const int UP = 1;
-		public const int DOWN = -1;
-		public const int LEFT = -1;
-		public const int RIGHT = 1;
-		public const int NONE = 0;
+		UP = 1,DOWN = -1, LEFT = -1,RIGHT = 1,NONE = 0
 		
-		
-		public const int HIGH = 1;
-		public const int MIDDLE = 2;
-		public const int LOW = 3;
 	}
+    public enum GameButton
+    {
+        UNKNOWN,UP,DOWN,LEFT,RIGHT,UP_L,UP_R,DOWN_L,DOWN_R,WEAK,MEDIUM,STRONG,DASHB,DASHF
+    }
 }
 
